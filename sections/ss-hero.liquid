@@ -1,0 +1,249 @@
+{%- liquid
+  assign diagonal_class = ''
+  if section.settings.diagonal
+    assign diagonal_class = ' ss-hero--diagonal'
+  endif
+-%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} spacing-style ss-hero{{ diagonal_class }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  data-testid="ss-hero"
+>
+  <div class="ss-hero__inner">
+    <div class="ss-hero__content">
+      {%- if section.settings.kicker != blank -%}
+        <p class="ss-hero__kicker">{{ section.settings.kicker }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h1 class="ss-hero__heading">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+      {%- if section.settings.subtext != blank -%}
+        <div class="ss-hero__subtext">{{ section.settings.subtext }}</div>
+      {%- endif -%}
+      {%- if section.settings.button1_label != blank or section.settings.button2_label != blank -%}
+        <div class="ss-hero__actions">
+          {%- if section.settings.button1_label != blank -%}
+            <a class="button" href="{{ section.settings.button1_link | default: '#' }}">{{ section.settings.button1_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.button2_label != blank -%}
+            <a class="button-secondary" href="{{ section.settings.button2_link | default: '#' }}">{{ section.settings.button2_label }}</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+    <div class="ss-hero__media">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1800
+          | image_tag:
+            widths: '600, 900, 1200, 1800',
+            sizes: '(min-width: 750px) 55vw, 100vw',
+            class: 'ss-hero__img',
+            loading: 'eager',
+            alt: section.settings.image.alt | default: section.settings.heading
+        }}
+      {%- else -%}
+        {{ 'detailed-apparel-1' | placeholder_svg_tag: 'ss-hero__img placeholder-svg' }}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .ss-hero__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .ss-hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    padding: 48px var(--page-margin);
+  }
+
+  .ss-hero__kicker {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    color: var(--color-foreground-heading);
+  }
+
+  .ss-hero__heading {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    font-size: clamp(2.25rem, 6vw, 4.25rem);
+    color: var(--color-foreground-heading);
+  }
+
+  .ss-hero__subtext {
+    max-width: 46ch;
+    color: var(--color-foreground);
+  }
+
+  .ss-hero__subtext > :first-child { margin-top: 0; }
+  .ss-hero__subtext > :last-child { margin-bottom: 0; }
+
+  .ss-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .ss-hero__media {
+    position: relative;
+    min-height: 280px;
+    background-color: rgb(var(--color-foreground-rgb) / 0.08);
+  }
+
+  .ss-hero__media :is(img, svg) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ss-hero__inner {
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: stretch;
+      min-height: 70svh;
+    }
+
+    .ss-hero__content {
+      padding-block: 64px;
+      padding-inline: max(var(--page-margin), 4vw) 40px;
+    }
+
+    .ss-hero--diagonal .ss-hero__media {
+      clip-path: polygon(16% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker (small top line)",
+      "default": "TEAM SWAG"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "MADE FOR THE SIDELINE."
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "<p>We turn basic team logos into modern sideline gear parents actually want to wear.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "diagonal",
+      "label": "Diagonal image cut (desktop)",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "button1_label",
+      "label": "Primary button label",
+      "default": "START YOUR TEAM STORE"
+    },
+    {
+      "type": "url",
+      "id": "button1_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "button2_label",
+      "label": "Secondary button label",
+      "default": "SHOP TEAM GEAR"
+    },
+    {
+      "type": "url",
+      "id": "button2_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        { "value": "page-width", "label": "Page" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "full-width"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "category": "Sideline Social"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,200 @@
+{%- liquid
+  assign count = section.blocks.size | at_least: 1
+-%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} spacing-style ss-benefits"
+  style="{% render 'spacing-style', settings: section.settings %} --ss-benefits-count: {{ count }};"
+  data-testid="ss-benefits"
+>
+  <div class="ss-benefits__grid">
+    {%- for block in section.blocks -%}
+      <div class="ss-benefit" {{ block.shopify_attributes }}>
+        <span class="ss-benefit__icon">
+          {%- if block.settings.icon_image != blank -%}
+            {{ block.settings.icon_image | image_url: width: 96 | image_tag: widths: '48, 96', class: 'ss-benefit__icon-img', alt: block.settings.label }}
+          {%- else -%}
+            {% render 'ss-icon', name: block.settings.icon, width: 34 %}
+          {%- endif -%}
+        </span>
+        <div class="ss-benefit__text">
+          {%- if block.settings.label != blank -%}
+            <p class="ss-benefit__label">{{ block.settings.label }}</p>
+          {%- endif -%}
+          {%- if block.settings.description != blank -%}
+            <p class="ss-benefit__desc">{{ block.settings.description }}</p>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .ss-benefits__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .ss-benefit {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .ss-benefit__icon {
+    flex: 0 0 auto;
+    display: inline-flex;
+    color: var(--color-foreground-heading);
+  }
+
+  .ss-benefit__icon-img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+  }
+
+  .ss-benefit__label {
+    margin: 0 0 4px;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--color-foreground-heading);
+  }
+
+  .ss-benefit__desc {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-foreground);
+    opacity: 0.8;
+  }
+
+  @media screen and (min-width: 600px) {
+    .ss-benefits__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    .ss-benefits__grid {
+      grid-template-columns: repeat(var(--ss-benefits-count, 4), 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Benefits strip",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        { "value": "page-width", "label": "Page" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "truck", "label": "Truck" },
+            { "value": "tag", "label": "Tag" },
+            { "value": "pencil", "label": "Pencil" },
+            { "value": "monitor", "label": "Monitor" },
+            { "value": "shirt", "label": "Shirt" },
+            { "value": "box", "label": "Box" },
+            { "value": "star", "label": "Star" },
+            { "value": "sparkles", "label": "Sparkles" }
+          ],
+          "default": "truck"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Custom icon image (overrides icon)"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "FAST SHIPPING"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Reliable and quick delivery."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits strip",
+      "category": "Sideline Social",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": { "icon": "truck", "label": "FAST SHIPPING", "description": "Reliable and quick delivery." }
+        },
+        {
+          "type": "benefit",
+          "settings": { "icon": "tag", "label": "MADE TO ORDER", "description": "Created just for your team." }
+        },
+        {
+          "type": "benefit",
+          "settings": { "icon": "pencil", "label": "BETTER DESIGNS", "description": "Modern looks your team will love." }
+        },
+        {
+          "type": "benefit",
+          "settings": { "icon": "monitor", "label": "EASY ONLINE STORES", "description": "Simple for parents, easy for admins." }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,273 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} spacing-style ss-cta"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  data-testid="ss-final-cta"
+>
+  <div class="ss-cta__inner">
+    <div class="ss-cta__content">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="ss-cta__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtext != blank -%}
+        <div class="ss-cta__subtext">{{ section.settings.subtext }}</div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="ss-cta__features">
+          {%- for block in section.blocks -%}
+            <div class="ss-cta__feature" {{ block.shopify_attributes }}>
+              <span class="ss-cta__feature-icon">
+                {%- if block.settings.icon_image != blank -%}
+                  {{ block.settings.icon_image | image_url: width: 72 | image_tag: widths: '36, 72', class: 'ss-cta__feature-icon-img', alt: block.settings.label }}
+                {%- else -%}
+                  {% render 'ss-icon', name: block.settings.icon, width: 24 %}
+                {%- endif -%}
+              </span>
+              {%- if block.settings.label != blank -%}
+                <span class="ss-cta__feature-label">{{ block.settings.label }}</span>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.button1_label != blank or section.settings.button2_label != blank -%}
+        <div class="ss-cta__actions">
+          {%- if section.settings.button1_label != blank -%}
+            <a class="button" href="{{ section.settings.button1_link | default: '#' }}">{{ section.settings.button1_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.button2_label != blank -%}
+            <a class="button-secondary" href="{{ section.settings.button2_link | default: '#' }}">{{ section.settings.button2_label }}</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="ss-cta__media">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1200
+          | image_tag:
+            widths: '500, 800, 1200',
+            sizes: '(min-width: 750px) 40vw, 100vw',
+            class: 'ss-cta__img',
+            loading: 'lazy',
+            alt: section.settings.image.alt | default: section.settings.heading
+        }}
+      {%- else -%}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'ss-cta__img placeholder-svg' }}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .ss-cta__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .ss-cta__content {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 48px var(--page-margin);
+  }
+
+  .ss-cta__heading {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.05;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--color-foreground-heading);
+  }
+
+  .ss-cta__subtext { max-width: 52ch; color: var(--color-foreground); }
+  .ss-cta__subtext > :first-child { margin-top: 0; }
+  .ss-cta__subtext > :last-child { margin-bottom: 0; }
+
+  .ss-cta__features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px;
+  }
+
+  .ss-cta__feature { display: flex; gap: 10px; align-items: center; }
+  .ss-cta__feature-icon { flex: 0 0 auto; display: inline-flex; color: var(--color-foreground-heading); }
+  .ss-cta__feature-icon-img { width: 24px; height: 24px; object-fit: contain; }
+
+  .ss-cta__feature-label {
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    line-height: 1.2;
+    color: var(--color-foreground-heading);
+  }
+
+  .ss-cta__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+
+  .ss-cta__media {
+    position: relative;
+    min-height: 260px;
+    background-color: rgb(var(--color-foreground-rgb) / 0.12);
+  }
+
+  .ss-cta__media :is(img, svg) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ss-cta__inner {
+      grid-template-columns: 1.3fr 1fr;
+      align-items: stretch;
+    }
+
+    .ss-cta__content {
+      padding-block: 64px;
+      padding-inline: max(var(--page-margin), 4vw) 40px;
+      justify-content: center;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Final CTA",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "READY TO ELEVATE YOUR CLUB?"
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "<p>Better gear. Stronger brand. More team pride. Create your team store and start earning without the hassle.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "button1_label",
+      "label": "Primary button label",
+      "default": "START YOUR TEAM STORE"
+    },
+    {
+      "type": "url",
+      "id": "button1_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "button2_label",
+      "label": "Secondary button label",
+      "default": "LEARN MORE"
+    },
+    {
+      "type": "url",
+      "id": "button2_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-5"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        { "value": "page-width", "label": "Page" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "full-width"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "shield", "label": "Shield" },
+            { "value": "users", "label": "Users" },
+            { "value": "dollar", "label": "Dollar" },
+            { "value": "wrench", "label": "Wrench" },
+            { "value": "star", "label": "Star" },
+            { "value": "trophy", "label": "Trophy" }
+          ],
+          "default": "shield"
+        },
+        { "type": "image_picker", "id": "icon_image", "label": "Custom icon image (overrides icon)" },
+        { "type": "text", "id": "label", "label": "Label", "default": "BUILD YOUR BRAND" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Final CTA",
+      "category": "Sideline Social",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "shield", "label": "BUILD YOUR BRAND" } },
+        { "type": "feature", "settings": { "icon": "users", "label": "UNIFY YOUR TEAM" } },
+        { "type": "feature", "settings": { "icon": "dollar", "label": "EARN FOR YOUR PROGRAM" } },
+        { "type": "feature", "settings": { "icon": "wrench", "label": "WE HANDLE THE HARD PART" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
