@@ -1,290 +1,245 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */{
+{
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
-      "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
-          "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-secondary",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
-      ],
-      "name": "t:names.hero",
+    "ss_hero": {
+      "type": "ss-hero",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-6",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "kicker": "TEAM SWAG",
+        "heading": "MADE FOR THE SIDELINE.",
+        "subtext": "<p>We turn basic team logos into modern sideline gear parents actually want to wear.</p>",
+        "diagonal": true,
+        "button1_label": "START YOUR TEAM STORE",
+        "button1_link": "",
+        "button2_label": "SHOP TEAM GEAR",
+        "button2_link": "shopify://collections/all",
+        "color_scheme": "scheme-1",
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
+    "ss_benefits": {
+      "type": "ss-benefits",
       "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
-          "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
+        "benefit_1": {
+          "type": "benefit",
+          "settings": { "icon": "truck", "label": "FAST SHIPPING", "description": "Reliable and quick delivery." }
         },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
-          "settings": {
-            "product_card_gap": 4,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
+        "benefit_2": {
+          "type": "benefit",
+          "settings": { "icon": "tag", "label": "MADE TO ORDER", "description": "Created just for your team." }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": { "icon": "pencil", "label": "BETTER DESIGNS", "description": "Modern looks your team will love." }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": { "icon": "monitor", "label": "EASY ONLINE STORES", "description": "Simple for parents, easy for admins." }
         }
       },
-      "name": "Featured collection",
+      "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4"],
       "settings": {
-        "collection": "all",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 36,
+        "padding-block-end": 36
+      }
+    },
+    "ss_differentiator": {
+      "type": "ss-differentiator",
+      "blocks": {
+        "card_basic": {
+          "type": "compare_card",
+          "settings": {
+            "title": "BASIC TEAM STORE",
+            "accent": false,
+            "bullet_1_text": "Plain logo on a blank tee",
+            "bullet_1_positive": false,
+            "bullet_2_text": "Looks like every other store",
+            "bullet_2_positive": false,
+            "bullet_3_text": "Worn on game day, then forgotten",
+            "bullet_3_positive": false
+          }
+        },
+        "card_sideline": {
+          "type": "compare_card",
+          "settings": {
+            "title": "SIDELINE SOCIAL",
+            "accent": true,
+            "bullet_1_text": "Designed, not decorated",
+            "bullet_1_positive": true,
+            "bullet_2_text": "Modern athletic style",
+            "bullet_2_positive": true,
+            "bullet_3_text": "Worn beyond game day",
+            "bullet_3_positive": true
+          }
+        },
+        "feature_1": {
+          "type": "feature",
+          "settings": { "icon": "pencil", "label": "DESIGNED, NOT DECORATED", "description": "Original designs, not clip art." }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": { "icon": "shirt", "label": "MODERN ATHLETIC LOOKS", "description": "Trend-aware styles parents actually want." }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": { "icon": "shield", "label": "BUILT FOR CLUB IDENTITY", "description": "Gear that reflects your team and brings everyone together." }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": { "icon": "calendar", "label": "MADE TO WEAR BEYOND GAME DAY", "description": "Comfortable, versatile pieces for everyday life." }
+        }
+      },
+      "block_order": ["card_basic", "card_sideline", "feature_1", "feature_2", "feature_3", "feature_4"],
+      "settings": {
+        "heading": "MORE THAN A LOGO ON A SHIRT.",
+        "body": "<p>Most team stores stop at basic logo placement. We create modern, wearable designs that build team pride and look great on and off the field.</p>",
+        "color_scheme": "scheme-2",
+        "section_width": "page-width",
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      }
+    },
+    "ss_categories": {
+      "type": "collection-list",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>SHOP BY CATEGORY</h2>",
+            "type_preset": "h3",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "padding-block-end": 16
+          }
+        },
+        "static-collection-card": {
+          "type": "_collection-card",
+          "static": true,
+          "settings": {
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "placement": "below_image",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0
+          },
+          "blocks": {
+            "collection-card-image": {
+              "type": "_collection-card-image",
+              "static": true,
+              "settings": { "image_ratio": "adapt" }
+            },
+            "collection-title": {
+              "type": "collection-title",
+              "settings": {
+                "type_preset": "rte",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left"
+              }
+            }
+          },
+          "block_order": ["collection-title"]
+        }
+      },
+      "block_order": ["heading"],
+      "settings": {
+        "collection_list": [],
         "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
+        "carousel_on_mobile": true,
+        "columns": 6,
         "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
+        "columns_gap": 12,
         "rows_gap": 24,
         "icons_style": "arrow",
-        "icons_shape": "none",
+        "icons_shape": "circle",
         "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
+        "gap": 16,
         "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      }
+    },
+    "ss_how_it_works": {
+      "type": "ss-how-it-works",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": { "icon": "upload", "label": "SEND YOUR LOGO", "description": "Upload your logo and team details." }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": { "icon": "layout", "label": "WE DESIGN YOUR STORE", "description": "We create custom designs and build your online store." }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": { "icon": "cart", "label": "PARENTS SHOP ONLINE", "description": "Families order and pay direct—no forms or cash." }
+        },
+        "step_4": {
+          "type": "step",
+          "settings": { "icon": "box", "label": "WE MAKE & SHIP", "description": "Made to order and shipped fast to each customer." }
+        },
+        "step_5": {
+          "type": "step",
+          "settings": { "icon": "trophy", "label": "YOUR TEAM EARNS", "description": "A portion comes back to your team or program." }
+        }
+      },
+      "block_order": ["step_1", "step_2", "step_3", "step_4", "step_5"],
+      "settings": {
+        "heading": "HOW IT WORKS",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      }
+    },
+    "ss_final_cta": {
+      "type": "ss-final-cta",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": { "icon": "shield", "label": "BUILD YOUR BRAND" }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": { "icon": "users", "label": "UNIFY YOUR TEAM" }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": { "icon": "dollar", "label": "EARN FOR YOUR PROGRAM" }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": { "icon": "wrench", "label": "WE HANDLE THE HARD PART" }
+        }
+      },
+      "block_order": ["feature_1", "feature_2", "feature_3", "feature_4"],
+      "settings": {
+        "heading": "READY TO ELEVATE YOUR CLUB?",
+        "subtext": "<p>Better gear. Stronger brand. More team pride. Create your team store and start earning without the hassle.</p>",
+        "button1_label": "START YOUR TEAM STORE",
+        "button1_link": "",
+        "button2_label": "LEARN MORE",
+        "button2_link": "",
+        "color_scheme": "scheme-5",
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "ss_hero",
+    "ss_benefits",
+    "ss_differentiator",
+    "ss_categories",
+    "ss_how_it_works",
+    "ss_final_cta"
   ]
 }

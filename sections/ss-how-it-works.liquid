@@ -1,0 +1,227 @@
+{%- liquid
+  assign count = section.blocks.size | at_least: 1
+-%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} spacing-style ss-hiw"
+  style="{% render 'spacing-style', settings: section.settings %} --ss-hiw-count: {{ count }};"
+  data-testid="ss-how-it-works"
+>
+  {%- if section.settings.heading != blank -%}
+    <h2 class="ss-hiw__heading">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+
+  <ol class="ss-hiw__steps">
+    {%- for block in section.blocks -%}
+      <li class="ss-hiw__step" {{ block.shopify_attributes }}>
+        <span class="ss-hiw__icon">
+          {%- if block.settings.icon_image != blank -%}
+            {{ block.settings.icon_image | image_url: width: 80 | image_tag: widths: '40, 80', class: 'ss-hiw__icon-img', alt: block.settings.label }}
+          {%- else -%}
+            {% render 'ss-icon', name: block.settings.icon, width: 30 %}
+          {%- endif -%}
+          <span class="ss-hiw__num">{{ forloop.index }}</span>
+        </span>
+        {%- if block.settings.label != blank -%}
+          <p class="ss-hiw__label">{{ block.settings.label }}</p>
+        {%- endif -%}
+        {%- if block.settings.description != blank -%}
+          <p class="ss-hiw__desc">{{ block.settings.description }}</p>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ol>
+</div>
+
+{% stylesheet %}
+  .ss-hiw__heading {
+    margin: 0 0 40px;
+    text-align: center;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    color: var(--color-foreground-heading);
+  }
+
+  .ss-hiw__steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ss-hiw__step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .ss-hiw__icon {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    color: var(--color-foreground-heading);
+  }
+
+  .ss-hiw__icon-img { width: 30px; height: 30px; object-fit: contain; }
+
+  .ss-hiw__num {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--color-foreground-heading);
+    color: var(--color-background);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: 0.72rem;
+  }
+
+  .ss-hiw__label {
+    margin: 4px 0 0;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--color-foreground-heading);
+  }
+
+  .ss-hiw__desc {
+    margin: 0;
+    max-width: 22ch;
+    font-size: 0.85rem;
+    color: var(--color-foreground);
+    opacity: 0.8;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ss-hiw__steps {
+      grid-template-columns: repeat(var(--ss-hiw-count, 5), 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    /* Connector arrow between steps */
+    .ss-hiw__step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      top: 28px;
+      right: calc(-0.5em - 8px);
+      transform: translateY(-50%);
+      font-size: 1.25rem;
+      line-height: 1;
+      color: var(--color-foreground);
+      opacity: 0.4;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "How it works",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "HOW IT WORKS"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        { "value": "page-width", "label": "Page" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "upload", "label": "Upload" },
+            { "value": "layout", "label": "Layout" },
+            { "value": "cart", "label": "Cart" },
+            { "value": "box", "label": "Box" },
+            { "value": "trophy", "label": "Trophy" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "pencil", "label": "Pencil" },
+            { "value": "star", "label": "Star" }
+          ],
+          "default": "upload"
+        },
+        { "type": "image_picker", "id": "icon_image", "label": "Custom icon image (overrides icon)" },
+        { "type": "text", "id": "label", "label": "Label", "default": "SEND YOUR LOGO" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Upload your logo and team details." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How it works",
+      "category": "Sideline Social",
+      "blocks": [
+        { "type": "step", "settings": { "icon": "upload", "label": "SEND YOUR LOGO", "description": "Upload your logo and team details." } },
+        { "type": "step", "settings": { "icon": "layout", "label": "WE DESIGN YOUR STORE", "description": "We create custom designs and build your online store." } },
+        { "type": "step", "settings": { "icon": "cart", "label": "PARENTS SHOP ONLINE", "description": "Families order and pay direct—no forms or cash." } },
+        { "type": "step", "settings": { "icon": "box", "label": "WE MAKE & SHIP", "description": "Made to order and shipped fast to each customer." } },
+        { "type": "step", "settings": { "icon": "trophy", "label": "YOUR TEAM EARNS", "description": "A portion comes back to your team or program." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

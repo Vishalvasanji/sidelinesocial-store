@@ -14,6 +14,57 @@
     "footer_m9NzUG": {
       "type": "footer",
       "blocks": {
+        "footer_tagline": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Better gear for clubs. Built for the sideline.</p>",
+            "type_preset": "rte",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left"
+          },
+          "blocks": {}
+        },
+        "menu_shop": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer-shop",
+            "heading": "SHOP",
+            "heading_preset": "h6",
+            "link_preset": "paragraph"
+          },
+          "blocks": {}
+        },
+        "menu_team_stores": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer-team-stores",
+            "heading": "TEAM STORES",
+            "heading_preset": "h6",
+            "link_preset": "paragraph"
+          },
+          "blocks": {}
+        },
+        "menu_company": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer-company",
+            "heading": "COMPANY",
+            "heading_preset": "h6",
+            "link_preset": "paragraph"
+          },
+          "blocks": {}
+        },
+        "menu_help": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer-help",
+            "heading": "HELP",
+            "heading_preset": "h6",
+            "link_preset": "paragraph"
+          },
+          "blocks": {}
+        },
         "group_H6VpwJ": {
           "type": "group",
           "settings": {
@@ -56,7 +107,7 @@
             "text_LWt8Pz": {
               "type": "text",
               "settings": {
-                "text": "<h2>Join our email list</h2>",
+                "text": "<h2>STAY IN THE GAME</h2>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -81,7 +132,7 @@
             "text_f9CFLH": {
               "type": "text",
               "settings": {
-                "text": "<p>Get exclusive deals and early access to new products.</p>",
+                "text": "<p>Get new drops, team store tips, and exclusive offers.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -136,6 +187,11 @@
         }
       },
       "block_order": [
+        "footer_tagline",
+        "menu_shop",
+        "menu_team_stores",
+        "menu_company",
+        "menu_help",
         "group_H6VpwJ",
         "email_signup_crihX7"
       ],
