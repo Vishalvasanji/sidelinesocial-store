@@ -104,16 +104,33 @@
     "ss_categories": {
       "type": "collection-list",
       "blocks": {
-        "heading": {
-          "type": "text",
+        "category_header": {
+          "type": "group",
           "settings": {
-            "text": "<h2>SHOP BY CATEGORY</h2>",
-            "type_preset": "h3",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "center",
-            "padding-block-end": 16
-          }
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "center",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "inherit_color_scheme": true
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>SHOP BY CATEGORY</h2>",
+                "type_preset": "h3",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "padding-block-end": 16
+              }
+            }
+          },
+          "block_order": ["heading"]
         },
         "static-collection-card": {
           "type": "_collection-card",
@@ -148,7 +165,7 @@
           "block_order": ["collection-title"]
         }
       },
-      "block_order": ["heading"],
+      "block_order": ["category_header"],
       "settings": {
         "collection_list": [],
         "layout_type": "grid",
