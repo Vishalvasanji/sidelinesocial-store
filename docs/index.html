@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sideline Social — Team swag made for the sideline</title>
   <meta name="description" content="We turn basic team logos into modern sideline gear parents actually want to wear." />
+  <link rel="preload" as="font" type="font/woff2" href="./fonts/archivo-variable.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="./fonts/inter-variable.woff2" crossorigin />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
@@ -18,7 +20,7 @@
   <!-- Header / nav -->
   <header class="proto-header">
     <div class="container proto-header__inner">
-      <a href="#" class="proto-logo">Sideline</a>
+      <a href="#" class="proto-logo"><span>Sideline</span><span class="soc">Social</span></a>
       <nav class="proto-nav">
         <a href="#">Shop all</a>
         <a href="#">Youth <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
@@ -29,12 +31,12 @@
         <a href="#">About</a>
       </nav>
       <div class="proto-header__icons">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        <span class="proto-cart">
+        <a href="#" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></a>
+        <a href="#" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+        <a href="#" class="proto-cart" aria-label="Cart">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span class="proto-cart__count">0</span>
-        </span>
+        </a>
       </div>
     </div>
   </header>
@@ -50,15 +52,17 @@
           <a class="button" href="#">Start your team store</a>
           <a class="button-secondary" href="#">Shop team gear</a>
         </div>
+        <p class="ss-hero__trust">Trusted by clubs across baseball · lacrosse · volleyball · soccer</p>
       </div>
       <div class="ss-hero__media">
         <div class="proto-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+        <img class="proto-photo" src="https://picsum.photos/seed/sideline-hero/1200/1100?grayscale" alt="Young athletes on the sideline" loading="eager" onerror="this.style.display='none'">
       </div>
     </div>
   </section>
 
   <!-- Benefits strip -->
-  <section class="section color-scheme-1 section--pad">
+  <section class="section color-scheme-1 section--pad section--divider">
     <div class="container">
       <div class="ss-benefits__grid">
         <div class="ss-benefit">
@@ -141,18 +145,18 @@
     <div class="container">
       <h2 class="ss-cats__heading">Shop by category</h2>
       <div class="ss-cats__grid">
-        <a class="ss-cats__card" href="#"><div class="ss-cats__media"><div class="proto-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div><span class="ss-cats__label-row"><span class="ss-cats__label">Youth gear</span><span class="ss-cats__arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
-        <a class="ss-cats__card" href="#"><div class="ss-cats__media"><div class="proto-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div><span class="ss-cats__label-row"><span class="ss-cats__label">Women's gear</span><span class="ss-cats__arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
-        <a class="ss-cats__card" href="#"><div class="ss-cats__media"><div class="proto-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div><span class="ss-cats__label-row"><span class="ss-cats__label">Adult / Unisex</span><span class="ss-cats__arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
-        <a class="ss-cats__card" href="#"><div class="ss-cats__media"><div class="proto-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div><span class="ss-cats__label-row"><span class="ss-cats__label">Hoodies</span><span class="ss-cats__arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
-        <a class="ss-cats__card" href="#"><div class="ss-cats__media"><div class="proto-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div><span class="ss-cats__label-row"><span class="ss-cats__label">Tees</span><span class="ss-cats__arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
-        <a class="ss-cats__card" href="#"><div class="ss-cats__media"><div class="proto-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div><span class="ss-cats__label-row"><span class="ss-cats__label">Nike gear</span><span class="ss-cats__arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
+        <a class="ss-cats__card" href="#"><div class="ss-cats__media"><div class="proto-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="proto-photo" src="https://picsum.photos/seed/ss-youth/600/760?grayscale" alt="Youth gear" loading="lazy" onerror="this.style.display='none'"></div><span class="ss-cats__label-row"><span class="ss-cats__label">Youth gear</span><span class="ss-cats__arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
+        <a class="ss-cats__card" href="#"><div class="ss-cats__media"><div class="proto-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="proto-photo" src="https://picsum.photos/seed/ss-women/600/760?grayscale" alt="Women's gear" loading="lazy" onerror="this.style.display='none'"></div><span class="ss-cats__label-row"><span class="ss-cats__label">Women's gear</span><span class="ss-cats__arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
+        <a class="ss-cats__card" href="#"><div class="ss-cats__media"><div class="proto-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="proto-photo" src="https://picsum.photos/seed/ss-adult/600/760?grayscale" alt="Adult / Unisex" loading="lazy" onerror="this.style.display='none'"></div><span class="ss-cats__label-row"><span class="ss-cats__label">Adult / Unisex</span><span class="ss-cats__arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
+        <a class="ss-cats__card" href="#"><div class="ss-cats__media"><div class="proto-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="proto-photo" src="https://picsum.photos/seed/ss-hoodies/600/760?grayscale" alt="Hoodies" loading="lazy" onerror="this.style.display='none'"></div><span class="ss-cats__label-row"><span class="ss-cats__label">Hoodies</span><span class="ss-cats__arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
+        <a class="ss-cats__card" href="#"><div class="ss-cats__media"><div class="proto-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="proto-photo" src="https://picsum.photos/seed/ss-tees/600/760?grayscale" alt="Tees" loading="lazy" onerror="this.style.display='none'"></div><span class="ss-cats__label-row"><span class="ss-cats__label">Tees</span><span class="ss-cats__arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
+        <a class="ss-cats__card" href="#"><div class="ss-cats__media"><div class="proto-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="proto-photo" src="https://picsum.photos/seed/ss-nike/600/760?grayscale" alt="Nike gear" loading="lazy" onerror="this.style.display='none'"></div><span class="ss-cats__label-row"><span class="ss-cats__label">Nike gear</span><span class="ss-cats__arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
       </div>
     </div>
   </section>
 
   <!-- How it works -->
-  <section class="section color-scheme-1 section--pad">
+  <section class="section color-scheme-1 section--pad section--divider">
     <div class="container">
       <h2 class="ss-hiw__heading">How it works</h2>
       <ol class="ss-hiw__steps">
@@ -199,6 +203,7 @@
       </div>
       <div class="ss-cta__media">
         <div class="proto-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+        <img class="proto-photo" src="https://picsum.photos/seed/sideline-cta/1000/1000?grayscale" alt="Team celebrating" loading="lazy" onerror="this.style.display='none'">
       </div>
     </div>
   </section>
@@ -208,7 +213,7 @@
     <div class="container">
       <div class="proto-footer__grid">
         <div class="proto-footer__brand">
-          <a href="#" class="proto-logo">Sideline</a>
+          <a href="#" class="proto-logo"><span>Sideline</span><span class="soc">Social</span></a>
           <p class="proto-footer__tagline">Better gear for clubs. Built for the sideline.</p>
         </div>
         <div class="proto-footer__col">
@@ -235,10 +240,10 @@
             <button type="submit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
           </form>
           <div class="proto-socials">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
           </div>
         </div>
       </div>
