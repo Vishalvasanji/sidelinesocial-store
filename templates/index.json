@@ -102,83 +102,21 @@
       }
     },
     "ss_categories": {
-      "type": "collection-list",
+      "type": "ss-categories",
       "blocks": {
-        "category_header": {
-          "type": "group",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "center",
-            "vertical_alignment": "center",
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "inherit_color_scheme": true
-          },
-          "blocks": {
-            "heading": {
-              "type": "text",
-              "settings": {
-                "text": "<h2>SHOP BY CATEGORY</h2>",
-                "type_preset": "h3",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "center",
-                "padding-block-end": 16
-              }
-            }
-          },
-          "block_order": ["heading"]
-        },
-        "static-collection-card": {
-          "type": "_collection-card",
-          "static": true,
-          "settings": {
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "placement": "below_image",
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0
-          },
-          "blocks": {
-            "collection-card-image": {
-              "type": "_collection-card-image",
-              "static": true,
-              "settings": { "image_ratio": "adapt" }
-            },
-            "collection-title": {
-              "type": "collection-title",
-              "settings": {
-                "type_preset": "rte",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left"
-              }
-            }
-          },
-          "block_order": ["collection-title"]
-        }
+        "cat_1": { "type": "category", "settings": { "label": "YOUTH GEAR" } },
+        "cat_2": { "type": "category", "settings": { "label": "WOMEN'S GEAR" } },
+        "cat_3": { "type": "category", "settings": { "label": "ADULT / UNISEX" } },
+        "cat_4": { "type": "category", "settings": { "label": "HOODIES" } },
+        "cat_5": { "type": "category", "settings": { "label": "TEES" } },
+        "cat_6": { "type": "category", "settings": { "label": "NIKE GEAR" } }
       },
-      "block_order": ["category_header"],
+      "block_order": ["cat_1", "cat_2", "cat_3", "cat_4", "cat_5", "cat_6"],
       "settings": {
-        "collection_list": [],
-        "layout_type": "grid",
-        "carousel_on_mobile": true,
+        "heading": "SHOP BY CATEGORY",
         "columns": 6,
-        "mobile_columns": "2",
-        "columns_gap": 12,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "circle",
-        "section_width": "page-width",
-        "gap": 16,
         "color_scheme": "scheme-1",
+        "section_width": "page-width",
         "padding-block-start": 56,
         "padding-block-end": 56
       }
