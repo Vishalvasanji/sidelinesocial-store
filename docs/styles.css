@@ -200,7 +200,7 @@ h1, h2, h3, h4,
 }
 .proto-nav a:hover { color: var(--color-accent); }
 .proto-nav svg { width: 11px; height: 11px; opacity: 0.6; }
-.proto-header__icons { display: flex; gap: 18px; align-items: center; }
+.proto-header__icons { display: flex; gap: 18px; align-items: center; margin-left: auto; }
 .proto-header__icons svg { width: 21px; height: 21px; }
 .proto-header__icons a { color: inherit; transition: color 0.15s ease; }
 .proto-header__icons a:hover { color: var(--color-accent); }
