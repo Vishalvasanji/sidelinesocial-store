@@ -272,6 +272,24 @@ h1, h2, h3, h4,
 .ss-benefits__grid .ss-benefit:nth-child(4) { --reveal-delay: 240ms; }
 @media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; transition: none; } }
 
+/* ---- Benefits sticky pin (scroll-driven reveal; desktop + supporting browsers) --- */
+@keyframes ss-rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+@supports (animation-timeline: view()) {
+  @media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+    .ss-pin__track { min-height: 170vh; view-timeline-name: --benefitsPin; }
+    .ss-pin__stage { position: sticky; top: 0; min-height: 100vh; display: grid; align-content: center; }
+    /* cards rise in sequence as you scroll through the pinned section */
+    .ss-pin .ss-benefit { animation: ss-rise both; animation-timeline: --benefitsPin; }
+    .ss-pin .ss-benefit:nth-child(1) { animation-range: 40% 47%; }
+    .ss-pin .ss-benefit:nth-child(2) { animation-range: 44% 51%; }
+    .ss-pin .ss-benefit:nth-child(3) { animation-range: 48% 55%; }
+    .ss-pin .ss-benefit:nth-child(4) { animation-range: 52% 59%; }
+    /* native timeline owns the cards + header — neutralize the IO fade so they don't double up */
+    .js .ss-pin .ss-benefit.reveal,
+    .js .ss-pin .ss-benefits__head.reveal { opacity: 1; transform: none; transition: none; }
+  }
+}
+
 /* ---- Differentiator (VS) ------------------------------------------------ */
 .ss-diff__inner { display: grid; gap: 40px; grid-template-columns: 1fr; }
 .ss-diff__heading { margin: 0 0 16px; font-weight: 800; font-stretch: 112%; text-transform: uppercase; line-height: 1.02; font-size: clamp(1.85rem, 3.5vw, 2.9rem); color: var(--color-foreground-heading); }
