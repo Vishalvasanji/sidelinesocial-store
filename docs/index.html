@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sideline Social — Team swag made for the sideline</title>
   <meta name="description" content="We turn basic team logos into modern sideline gear parents actually want to wear." />
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="preload" as="font" type="font/woff2" href="./fonts/archivo-variable.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="./fonts/inter-variable.woff2" crossorigin />
-  <link rel="stylesheet" href="./styles.css?v=3" />
+  <link rel="stylesheet" href="./styles.css?v=4" />
 </head>
 <body>
 
@@ -64,20 +65,24 @@
   <!-- Benefits strip -->
   <section class="section color-scheme-1 section--pad section--divider">
     <div class="container">
+      <div class="ss-benefits__head reveal">
+        <h2 class="ss-benefits__heading">The sideline standard</h2>
+        <p class="ss-benefits__sub">Premium designs, fair pricing, fast shipping, and an online store we run for you.</p>
+      </div>
       <div class="ss-benefits__grid">
-        <div class="ss-benefit">
+        <div class="ss-benefit reveal">
           <span class="ss-benefit__icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
           <div><p class="ss-benefit__label">Fast shipping</p><p class="ss-benefit__desc">Reliable and quick delivery.</p></div>
         </div>
-        <div class="ss-benefit">
+        <div class="ss-benefit reveal">
           <span class="ss-benefit__icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
-          <div><p class="ss-benefit__label">Made to order</p><p class="ss-benefit__desc">Created just for your team.</p></div>
+          <div><p class="ss-benefit__label">Fair pricing</p><p class="ss-benefit__desc">Honest, transparent pricing — no hidden fees.</p></div>
         </div>
-        <div class="ss-benefit">
+        <div class="ss-benefit reveal">
           <span class="ss-benefit__icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.83 2.83 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5z"/><line x1="15" y1="5" x2="19" y2="9"/></svg></span>
           <div><p class="ss-benefit__label">Better designs</p><p class="ss-benefit__desc">Modern looks your team will love.</p></div>
         </div>
-        <div class="ss-benefit">
+        <div class="ss-benefit reveal">
           <span class="ss-benefit__icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
           <div><p class="ss-benefit__label">Easy online stores</p><p class="ss-benefit__desc">Simple for parents, easy for admins.</p></div>
         </div>
@@ -250,6 +255,17 @@
       <div class="proto-footer__bottom">© 2025 Sideline Social. All rights reserved.</div>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('is-visible'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+  </script>
 
 </body>
 </html>
