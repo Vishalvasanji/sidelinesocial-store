@@ -233,22 +233,44 @@ h1, h2, h3, h4,
   .ss-hero__content { padding-top: 22px; }
 }
 
-/* ---- Benefits strip (icons in circles for a premium, consistent feel) --- */
-.ss-benefits__grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
-.ss-benefit { display: flex; gap: 16px; align-items: center; }
+/* ---- Benefits strip (card grid + section header) ----------------------- */
+.ss-benefits__head { max-width: 640px; margin: 0 auto 40px; text-align: center; }
+.ss-benefits__heading { margin: 0 0 10px; font-weight: 800; font-stretch: 112%; text-transform: uppercase; font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--color-foreground-heading); }
+.ss-benefits__sub { margin: 0; color: var(--color-foreground); opacity: 0.78; font-size: 1rem; }
+
+.ss-benefits__grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+.ss-benefit {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+  padding: 26px 22px;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background-color: rgb(var(--color-foreground-rgb) / 0.015);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.ss-benefit:hover { transform: translateY(-4px); border-color: var(--color-accent); box-shadow: 0 14px 34px rgba(22, 38, 77, 0.1); }
 .ss-benefit__icon {
   flex: 0 0 auto;
-  width: 54px; height: 54px;
+  width: 56px; height: 56px;
   display: grid; place-items: center;
   border: 1.5px solid var(--color-border);
   border-radius: 50%;
   color: var(--color-accent);
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
 }
-.ss-benefit__icon svg { width: 25px; height: 25px; }
-.ss-benefit__label { margin: 0 0 3px; font-family: var(--font-heading--family); font-weight: 700; font-stretch: 105%; text-transform: uppercase; letter-spacing: 0.02em; font-size: 0.92rem; color: var(--color-foreground-heading); }
+.ss-benefit:hover .ss-benefit__icon { background-color: var(--color-accent); border-color: var(--color-accent); color: #fff; }
+.ss-benefit__icon svg { width: 26px; height: 26px; }
+.ss-benefit__label { margin: 0 0 4px; font-family: var(--font-heading--family); font-weight: 700; font-stretch: 105%; text-transform: uppercase; letter-spacing: 0.02em; font-size: 0.92rem; color: var(--color-foreground-heading); }
 .ss-benefit__desc { margin: 0; font-size: 0.88rem; color: var(--color-foreground); opacity: 0.75; }
-@media (min-width: 600px) { .ss-benefits__grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 900px) { .ss-benefits__grid { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
+@media (min-width: 600px) { .ss-benefits__grid { grid-template-columns: 1fr 1fr; gap: 18px; } }
+@media (min-width: 900px) { .ss-benefits__grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
+
+/* ---- Scroll reveal (subtle fade-up; needs JS + respects reduced motion) - */
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; transition-delay: var(--reveal-delay, 0ms); }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+.ss-benefits__grid .ss-benefit:nth-child(2) { --reveal-delay: 80ms; }
+.ss-benefits__grid .ss-benefit:nth-child(3) { --reveal-delay: 160ms; }
+.ss-benefits__grid .ss-benefit:nth-child(4) { --reveal-delay: 240ms; }
+@media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; transition: none; } }
 
 /* ---- Differentiator (VS) ------------------------------------------------ */
 .ss-diff__inner { display: grid; gap: 40px; grid-template-columns: 1fr; }
