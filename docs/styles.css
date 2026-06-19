@@ -228,6 +228,16 @@ h1, h2, h3, h4,
   .ss-hero--diagonal .ss-hero__media { clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%); }
 }
 
+@media (max-width: 749px) {
+  /* Lift the image higher up the fold by tightening the content above it. */
+  .ss-hero__content { padding-top: 26px; padding-bottom: 28px; gap: 15px; }
+  .ss-hero__kicker { display: none; }
+  .ss-hero__actions { flex-wrap: nowrap; gap: 10px; margin-top: 2px; }
+  .ss-hero__actions .button,
+  .ss-hero__actions .button-secondary { flex: 1 1 0; padding: 13px 10px; font-size: 0.64rem; letter-spacing: 0.03em; white-space: nowrap; }
+  .ss-hero__trust { font-size: 0.58rem; letter-spacing: 0.05em; margin-top: 2px; }
+}
+
 /* ---- Benefits strip (icons in circles for a premium, consistent feel) --- */
 .ss-benefits__grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
 .ss-benefit { display: flex; gap: 16px; align-items: center; }
