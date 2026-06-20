@@ -234,15 +234,18 @@ h1, h2, h3, h4,
 }
 
 /* ---- Benefits strip (card grid + section header) ----------------------- */
-.ss-benefits__head { max-width: 640px; margin: 0 auto 40px; text-align: center; }
+.ss-benefits__head { max-width: 960px; margin: 0 auto 40px; text-align: center; }
 .ss-benefits__heading { margin: 0 0 10px; font-weight: 800; font-stretch: 112%; text-transform: uppercase; font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--color-foreground-heading); }
-.ss-benefits__sub { margin: 0; color: var(--color-foreground); opacity: 0.78; font-size: 1rem; }
+.ss-benefits__sub { margin: 0 auto; max-width: 620px; color: var(--color-foreground); opacity: 0.78; font-size: 1rem; }
 
 .ss-benefits__grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
 .ss-benefit {
+  position: relative;
+  overflow: hidden;
   display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
-  padding: 26px 22px;
+  padding: 22px 22px 26px;
   border: 1px solid var(--color-border);
+  border-top: 5px solid var(--color-accent);
   border-radius: 14px;
   background-color: rgb(var(--color-foreground-rgb) / 0.015);
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
@@ -261,6 +264,10 @@ h1, h2, h3, h4,
 .ss-benefit__icon svg { width: 26px; height: 26px; }
 .ss-benefit__label { margin: 0 0 4px; font-family: var(--font-heading--family); font-weight: 700; font-stretch: 105%; text-transform: uppercase; letter-spacing: 0.02em; font-size: 0.92rem; color: var(--color-foreground-heading); }
 .ss-benefit__desc { margin: 0; font-size: 0.88rem; color: var(--color-foreground); opacity: 0.75; }
+/* faint oversized brand watermark, bottom-right of each card */
+.ss-benefit__icon, .ss-benefit > div { position: relative; z-index: 1; }
+.ss-benefit__watermark { position: absolute; right: -6px; bottom: -10px; width: 120px; height: 120px; color: var(--color-accent); opacity: 0.06; stroke-width: 1; pointer-events: none; z-index: 0; }
+@media (max-width: 749px) { .ss-benefit__watermark { width: 92px; height: 92px; } }
 @media (min-width: 600px) { .ss-benefits__grid { grid-template-columns: 1fr 1fr; gap: 18px; } }
 @media (min-width: 900px) { .ss-benefits__grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
 
