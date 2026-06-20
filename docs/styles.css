@@ -192,26 +192,13 @@ button { font-family: inherit; }
 .ss-hero__trust { display: flex; align-items: center; gap: 11px; margin-top: 26px; font-size: 0.82rem; color: rgba(255, 255, 255, 0.62); }
 .ss-stars { color: var(--gold); letter-spacing: 2px; font-size: 0.95rem; }
 
-/* hero media composition */
-.ss-hero__media { position: relative; min-height: 340px; }
-.ss-tablet { position: relative; margin-inline: auto; width: min(100%, 460px); background: var(--ss-bg-panel); border: 1px solid var(--ss-border-dark); border-radius: 20px; padding: 16px; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45); }
-.ss-tablet__bar { display: flex; align-items: center; gap: 9px; padding-bottom: 12px; }
-.ss-tablet__logo { width: 26px; height: 26px; border-radius: 6px; display: grid; place-items: center; background: var(--blue); color: #fff; font-family: var(--font-heading); font-weight: 800; font-size: 0.7rem; }
-.ss-tablet__team { font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.74rem; color: #fff; }
-.ss-tablet__pill { margin-left: auto; font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.08em; color: #14202e; background: var(--gold); padding: 3px 8px; border-radius: 20px; font-weight: 700; }
-.ss-tablet__grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-.ss-tablet__grid .ph { aspect-ratio: 1; border-radius: 9px; }
-.ss-hero__chip { position: absolute; border-radius: 14px; border: 1px solid var(--ss-border-dark); background: #132238; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4); padding: 11px; display: flex; align-items: center; gap: 9px; }
-.ss-hero__chip .ph { width: 44px; height: 44px; border-radius: 9px; flex: none; }
-.ss-hero__chip-label { font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; font-size: 0.62rem; letter-spacing: 0.04em; color: #fff; }
-.ss-hero__chip-price { font-size: 0.66rem; color: var(--gold); font-weight: 700; }
-.ss-hero__chip--a { left: -10px; top: 33%; }
-.ss-hero__chip--b { right: -12px; bottom: 9%; }
-@media (max-width: 620px) { .ss-hero__chip { display: none; } }
+/* hero media — single image (swap docs/img/hero.svg for the exported mockup hero) */
+.ss-hero__media { position: relative; }
+.ss-hero__img { display: block; width: 100%; height: auto; max-width: 520px; margin-inline: auto; }
 
 @media (min-width: 950px) {
   .ss-hero__inner { grid-template-columns: 1.02fr 0.98fr; gap: 50px; }
-  .ss-hero__media { min-height: 460px; }
+  .ss-hero__img { max-width: none; }
 }
 
 /* ===========================================================
