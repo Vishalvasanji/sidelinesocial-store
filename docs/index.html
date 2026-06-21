@@ -8,9 +8,31 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preload" href="./fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="./fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="./styles.css?v=10" />
+  <link rel="stylesheet" href="./styles.css?v=11" />
 </head>
 <body>
+
+  <!-- Live accent palette picker (preview/dev tool — remove or query-param-gate before launch) -->
+  <div class="ss-palette" id="palette" role="region" aria-label="Theme preview">
+    <span class="ss-palette__label">Accent</span>
+    <div class="ss-palette__swatches" id="paletteSwatches">
+      <button type="button" class="ss-palette__sw" data-accent="#3B82F6" style="background:#3B82F6" title="Electric Blue" aria-label="Electric Blue" aria-pressed="true"></button>
+      <button type="button" class="ss-palette__sw" data-accent="#1FA463" style="background:#1FA463" title="Emerald" aria-label="Emerald" aria-pressed="false"></button>
+      <button type="button" class="ss-palette__sw" data-accent="#14B8A6" style="background:#14B8A6" title="Teal" aria-label="Teal" aria-pressed="false"></button>
+      <button type="button" class="ss-palette__sw" data-accent="#FB6A45" style="background:#FB6A45" title="Coral" aria-label="Coral" aria-pressed="false"></button>
+      <button type="button" class="ss-palette__sw" data-accent="#E5384A" style="background:#E5384A" title="Crimson" aria-label="Crimson" aria-pressed="false"></button>
+      <button type="button" class="ss-palette__sw" data-accent="#7C5CFC" style="background:#7C5CFC" title="Violet" aria-label="Violet" aria-pressed="false"></button>
+      <button type="button" class="ss-palette__sw" data-accent="#D8A735" style="background:#D8A735" title="Gold (original)" aria-label="Gold (original)" aria-pressed="false"></button>
+    </div>
+    <input type="color" class="ss-palette__custom" id="paletteCustom" value="#3B82F6" title="Custom accent color" aria-label="Custom accent color" />
+    <span class="ss-palette__sep" aria-hidden="true"></span>
+    <span class="ss-palette__label">Base</span>
+    <div class="ss-palette__toggle" id="paletteBase">
+      <button type="button" data-base="nearblack" aria-pressed="true">Near-black</button>
+      <button type="button" data-base="navy" aria-pressed="false">Navy</button>
+    </div>
+    <button type="button" class="ss-palette__reset" id="paletteReset">Reset to original</button>
+  </div>
 
   <!-- 1. Announcement ------------------------------------------------ -->
   <div class="ss-announce scheme-dark">
@@ -403,6 +425,80 @@
         var open = nav.classList.toggle('is-open');
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
+    })();
+
+    // Live accent palette picker (preview/dev tool — themes the page via CSS vars)
+    (function () {
+      var root = document.documentElement;
+      var bar = document.getElementById('palette');
+      if (!bar) return;
+      var KEY = 'ssPalettePreview';
+      var ORIGINAL = { accent: '#D8A735', secondary: '#1F5FBF', soft: '#E6B94A', deep: '#B9892A', on: '#1C1404' };
+
+      function hexToRgb(h) {
+        h = h.replace('#', '');
+        if (h.length === 3) h = h.replace(/(.)/g, '$1$1');
+        var n = parseInt(h, 16);
+        return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
+      }
+      function toHex(r, g, b) {
+        function c(x) { x = Math.round(Math.max(0, Math.min(255, x))); return ('0' + x.toString(16)).slice(-2); }
+        return '#' + c(r) + c(g) + c(b);
+      }
+      function mix(hex, t, amt) { var a = hexToRgb(hex); return toHex(a.r + (t - a.r) * amt, a.g + (t - a.g) * amt, a.b + (t - a.b) * amt); }
+      function lighten(hex, amt) { return mix(hex, 255, amt); }
+      function darken(hex, amt) { return mix(hex, 0, amt); }
+      function lum(hex) {
+        var c = hexToRgb(hex);
+        var a = [c.r, c.g, c.b].map(function (v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+        return 0.2126 * a[0] + 0.7152 * a[1] + 0.0722 * a[2];
+      }
+      function onAccent(hex) { return lum(hex) > 0.4 ? '#101318' : '#ffffff'; }
+
+      var sws = [].slice.call(bar.querySelectorAll('.ss-palette__sw'));
+      var custom = document.getElementById('paletteCustom');
+      var baseBtns = [].slice.call(document.querySelectorAll('#paletteBase button'));
+      var state = { accent: '#3B82F6', secondary: null, base: 'nearblack' };
+      try { var saved = JSON.parse(localStorage.getItem(KEY)); if (saved && saved.accent) state = saved; } catch (e) {}
+
+      function applyAccent(hex, secondary) {
+        root.style.setProperty('--team-accent-primary', hex);
+        root.style.setProperty('--team-accent-secondary', secondary || hex);
+        root.style.setProperty('--accent-soft', lighten(hex, 0.22));
+        root.style.setProperty('--accent-deep', darken(hex, 0.18));
+        root.style.setProperty('--on-accent', onAccent(hex));
+        if (custom && /^#[0-9a-f]{6}$/i.test(hex)) custom.value = hex;
+        sws.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.accent.toLowerCase() === hex.toLowerCase() ? 'true' : 'false'); });
+      }
+      function setAccent(hex, secondary) { applyAccent(hex, secondary); state.accent = hex; state.secondary = secondary || null; save(); }
+      function setBase(mode) {
+        root.classList.toggle('base-navy', mode === 'navy');
+        baseBtns.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.base === mode ? 'true' : 'false'); });
+        state.base = mode; save();
+      }
+      function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+      sws.forEach(function (b) { b.addEventListener('click', function () { setAccent(b.dataset.accent); }); });
+      if (custom) custom.addEventListener('input', function () { setAccent(custom.value); });
+      baseBtns.forEach(function (b) { b.addEventListener('click', function () { setBase(b.dataset.base); }); });
+      var resetBtn = document.getElementById('paletteReset');
+      if (resetBtn) resetBtn.addEventListener('click', function () {
+        setBase('navy');
+        setAccent(ORIGINAL.accent, ORIGINAL.secondary);
+        root.style.setProperty('--accent-soft', ORIGINAL.soft);
+        root.style.setProperty('--accent-deep', ORIGINAL.deep);
+        root.style.setProperty('--on-accent', ORIGINAL.on);
+      });
+
+      // apply restored / default state
+      setBase(state.base || 'nearblack');
+      applyAccent(state.accent || '#3B82F6', state.secondary);
+
+      // keep --palette-h synced with the fixed bar height (offsets body + sticky header)
+      function measure() { root.style.setProperty('--palette-h', bar.offsetHeight + 'px'); }
+      measure();
+      window.addEventListener('resize', measure);
+      window.addEventListener('load', measure);
     })();
   </script>
 
