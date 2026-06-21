@@ -174,12 +174,10 @@ button { font-family: inherit; }
 .ss-iconbtn svg { width: 21px; height: 21px; }
 .ss-iconbtn:hover { color: var(--blue); }
 .ss-cart-count { position: absolute; top: -7px; right: -8px; background: var(--blue); color: #fff; font-family: var(--font-heading); font-weight: 700; font-size: 0.6rem; min-width: 16px; height: 16px; border-radius: 9px; display: grid; place-items: center; padding: 0 4px; }
-.ss-header__cta { display: none; padding: 11px 18px; font-size: 0.74rem; }
 .ss-hamburger { display: inline-grid; place-items: center; background: none; border: 0; color: #fff; cursor: pointer; padding: 4px; }
 .ss-hamburger svg { width: 26px; height: 26px; }
 @media (min-width: 1080px) {
   .ss-nav { display: flex; }
-  .ss-header__cta { display: inline-flex; }
   .ss-hamburger { display: none; }
   .ss-icons .ss-iconbtn--search { display: inline-grid; }
 }
