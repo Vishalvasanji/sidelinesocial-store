@@ -8,7 +8,7 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preload" href="./fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="./fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="./styles.css?v=11" />
+  <link rel="stylesheet" href="./styles.css?v=12" />
 </head>
 <body>
 
@@ -16,15 +16,15 @@
   <div class="ss-palette" id="palette" role="region" aria-label="Theme preview">
     <span class="ss-palette__label">Accent</span>
     <div class="ss-palette__swatches" id="paletteSwatches">
-      <button type="button" class="ss-palette__sw" data-accent="#3B82F6" style="background:#3B82F6" title="Electric Blue" aria-label="Electric Blue" aria-pressed="true"></button>
+      <button type="button" class="ss-palette__sw" data-accent="#3B82F6" style="background:#3B82F6" title="Electric Blue" aria-label="Electric Blue" aria-pressed="false"></button>
       <button type="button" class="ss-palette__sw" data-accent="#1FA463" style="background:#1FA463" title="Emerald" aria-label="Emerald" aria-pressed="false"></button>
       <button type="button" class="ss-palette__sw" data-accent="#14B8A6" style="background:#14B8A6" title="Teal" aria-label="Teal" aria-pressed="false"></button>
-      <button type="button" class="ss-palette__sw" data-accent="#FB6A45" style="background:#FB6A45" title="Coral" aria-label="Coral" aria-pressed="false"></button>
+      <button type="button" class="ss-palette__sw" data-accent="#FB6A45" style="background:#FB6A45" title="Coral" aria-label="Coral" aria-pressed="true"></button>
       <button type="button" class="ss-palette__sw" data-accent="#E5384A" style="background:#E5384A" title="Crimson" aria-label="Crimson" aria-pressed="false"></button>
       <button type="button" class="ss-palette__sw" data-accent="#7C5CFC" style="background:#7C5CFC" title="Violet" aria-label="Violet" aria-pressed="false"></button>
       <button type="button" class="ss-palette__sw" data-accent="#D8A735" style="background:#D8A735" title="Gold (original)" aria-label="Gold (original)" aria-pressed="false"></button>
     </div>
-    <input type="color" class="ss-palette__custom" id="paletteCustom" value="#3B82F6" title="Custom accent color" aria-label="Custom accent color" />
+    <input type="color" class="ss-palette__custom" id="paletteCustom" value="#FB6A45" title="Custom accent color" aria-label="Custom accent color" />
     <span class="ss-palette__sep" aria-hidden="true"></span>
     <span class="ss-palette__label">Base</span>
     <div class="ss-palette__toggle" id="paletteBase">
@@ -266,7 +266,7 @@
       <div class="ss-stores__layout">
         <article class="ss-store-featured reveal">
           <div class="ss-store-featured__top">
-            <span class="monogram" style="background:linear-gradient(145deg,#1d2b44,#0f1a2e);box-shadow:inset 0 0 0 2px var(--gold)">WW</span>
+            <span class="monogram" style="background:linear-gradient(145deg,#1d2b44,#0f1a2e);box-shadow:inset 0 0 0 2px var(--blue)">WW</span>
             <div>
               <div class="ss-store-featured__name">Westview Wolves</div>
               <div class="ss-store-featured__sport">Lacrosse</div>
@@ -432,8 +432,8 @@
       var root = document.documentElement;
       var bar = document.getElementById('palette');
       if (!bar) return;
-      var KEY = 'ssPalettePreview';
-      var ORIGINAL = { accent: '#D8A735', secondary: '#1F5FBF', soft: '#E6B94A', deep: '#B9892A', on: '#1C1404' };
+      var KEY = 'ssPalettePreview2';
+      var ORIGINAL = { accent: '#FB6A45', soft: '#FD8B6E', deep: '#CE5739', on: '#FFFFFF' };
 
       function hexToRgb(h) {
         h = h.replace('#', '');
@@ -458,12 +458,12 @@
       var sws = [].slice.call(bar.querySelectorAll('.ss-palette__sw'));
       var custom = document.getElementById('paletteCustom');
       var baseBtns = [].slice.call(document.querySelectorAll('#paletteBase button'));
-      var state = { accent: '#3B82F6', secondary: null, base: 'nearblack' };
+      var state = { accent: '#FB6A45', secondary: null, base: 'nearblack' };
       try { var saved = JSON.parse(localStorage.getItem(KEY)); if (saved && saved.accent) state = saved; } catch (e) {}
 
       function applyAccent(hex, secondary) {
         root.style.setProperty('--team-accent-primary', hex);
-        root.style.setProperty('--team-accent-secondary', secondary || hex);
+        /* accent 2 (--team-accent-secondary) is fixed in CSS — the picker drives accent 1 only */
         root.style.setProperty('--accent-soft', lighten(hex, 0.22));
         root.style.setProperty('--accent-deep', darken(hex, 0.18));
         root.style.setProperty('--on-accent', onAccent(hex));
@@ -483,8 +483,8 @@
       baseBtns.forEach(function (b) { b.addEventListener('click', function () { setBase(b.dataset.base); }); });
       var resetBtn = document.getElementById('paletteReset');
       if (resetBtn) resetBtn.addEventListener('click', function () {
-        setBase('navy');
-        setAccent(ORIGINAL.accent, ORIGINAL.secondary);
+        setBase('nearblack');
+        setAccent(ORIGINAL.accent);
         root.style.setProperty('--accent-soft', ORIGINAL.soft);
         root.style.setProperty('--accent-deep', ORIGINAL.deep);
         root.style.setProperty('--on-accent', ORIGINAL.on);
@@ -492,7 +492,7 @@
 
       // apply restored / default state
       setBase(state.base || 'nearblack');
-      applyAccent(state.accent || '#3B82F6', state.secondary);
+      applyAccent(state.accent || '#FB6A45');
 
       // keep --palette-h synced with the fixed bar height (offsets body + sticky header)
       function measure() { root.style.setProperty('--palette-h', bar.offsetHeight + 'px'); }
