@@ -162,9 +162,9 @@ button { font-family: inherit; }
 .ss-header__inner { display: flex; align-items: center; gap: 22px; min-height: 70px; }
 .ss-logo { display: inline-flex; align-items: center; }
 .ss-logo__icon { height: 34px; width: auto; flex: none; display: block; }
-.ss-logo__word { height: 24px; width: auto; display: block; margin-left: 10px; opacity: 1; transition: opacity 0.25s ease; }
+.ss-logo__word { height: 24px; width: auto; display: block; margin-left: 10px; opacity: 1; transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; }
 /* Nav: fade the wordmark out once scrolled — its space stays reserved so the nav doesn't shift */
-.ss-header.is-scrolled .ss-logo__word { opacity: 0; pointer-events: none; }
+.ss-header.is-scrolled .ss-logo__word { opacity: 0; transform: translateX(-6px); pointer-events: none; }
 /* Phones: header shows the icon only (footer keeps its wordmark) */
 @media (max-width: 640px) { .ss-header .ss-logo__word { display: none; } }
 @media (prefers-reduced-motion: reduce) { .ss-logo__word { transition: none; } }
