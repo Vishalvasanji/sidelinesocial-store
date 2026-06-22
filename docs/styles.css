@@ -159,7 +159,7 @@ button { font-family: inherit; }
    2. Header
    =========================================================== */
 .ss-header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--border); background: var(--ss-bg-dark); }
-.ss-header__inner { display: flex; align-items: center; gap: 22px; min-height: 70px; }
+.ss-header__inner { display: flex; align-items: center; gap: 22px; min-height: 60px; }
 .ss-logo { display: inline-flex; align-items: center; }
 .ss-logo__icon { height: 34px; width: auto; flex: none; display: block; }
 .ss-logo__word { height: 24px; width: auto; display: block; margin-left: 10px; opacity: 1; transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; }
