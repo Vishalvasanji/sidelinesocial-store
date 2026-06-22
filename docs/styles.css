@@ -196,10 +196,10 @@ button { font-family: inherit; }
    3. Hero
    =========================================================== */
 .ss-hero { position: relative; overflow: hidden; background: radial-gradient(120% 90% at 78% 0%, var(--ss-glow-hero) 0%, var(--ss-bg-dark) 55%); }
-.ss-hero__watermark { position: absolute; top: -3rem; right: -3rem; width: min(440px, 40%); opacity: 0.04; pointer-events: none; z-index: 0; }
+.ss-hero__watermark { position: absolute; top: 50%; right: 0; transform: translateY(-50%); height: 85%; width: auto; opacity: 0.04; pointer-events: none; z-index: 0; }
 /* mobile: stacked layout puts the image at the bottom — sit the faint "S" behind it, not behind the headline */
 @media (max-width: 949px) {
-  .ss-hero__watermark { top: auto; right: auto; bottom: 5%; left: 50%; transform: translateX(-50%); width: min(380px, 64%); }
+  .ss-hero__watermark { top: auto; right: auto; bottom: 5%; left: 50%; transform: translateX(-50%); height: auto; width: min(380px, 64%); }
 }
 .ss-hero__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr; gap: 44px; padding-block: clamp(48px, 7vw, 92px); align-items: center; }
 .ss-hero__content { max-width: 600px; }
