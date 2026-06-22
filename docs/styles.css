@@ -197,6 +197,10 @@ button { font-family: inherit; }
    =========================================================== */
 .ss-hero { position: relative; overflow: hidden; background: radial-gradient(120% 90% at 78% 0%, var(--ss-glow-hero) 0%, var(--ss-bg-dark) 55%); }
 .ss-hero__watermark { position: absolute; top: 50%; right: 0; transform: translateY(-50%); height: 85%; width: auto; max-width: none; opacity: 0.04; pointer-events: none; z-index: 0; }
+/* mobile: stacked layout — keep the "S" a complete mark tucked behind the products, right-aligned (the full-height square is wider than the phone) */
+@media (max-width: 949px) {
+  .ss-hero__watermark { top: auto; bottom: 7%; right: var(--page-margin); transform: none; height: auto; width: min(290px, 68%); }
+}
 .ss-hero__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr; gap: 44px; padding-block: clamp(48px, 7vw, 92px); align-items: center; }
 .ss-hero__content { max-width: 600px; }
 .ss-hero__title { font-size: clamp(2.7rem, 5vw, 3.7rem); font-weight: 800; font-stretch: 95%; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.94; color: #fff; }
