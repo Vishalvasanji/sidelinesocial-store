@@ -199,9 +199,9 @@ button { font-family: inherit; }
 .ss-hero__watermark { position: absolute; top: -3rem; right: -3rem; width: min(440px, 40%); opacity: 0.04; pointer-events: none; z-index: 0; }
 .ss-hero__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr; gap: 44px; padding-block: clamp(48px, 7vw, 92px); align-items: center; }
 .ss-hero__content { max-width: 600px; }
-.ss-hero__title { font-size: clamp(2.7rem, 5.4vw, 4rem); font-weight: 800; font-stretch: 112%; text-transform: uppercase; letter-spacing: -0.005em; line-height: 0.94; color: #fff; }
+.ss-hero__title { font-size: clamp(2.7rem, 5vw, 3.7rem); font-weight: 800; font-stretch: 95%; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.94; color: #fff; }
 .ss-hero__title-accent { color: var(--gold); }
-.ss-hero__copy { margin-top: 22px; font-size: clamp(1rem, 1.3vw, 1.16rem); color: rgba(255, 255, 255, 0.74); max-width: 46ch; }
+.ss-hero__copy { margin-top: 22px; font-size: clamp(1rem, 1.3vw, 1.16rem); color: rgba(255, 255, 255, 0.74); max-width: 40ch; }
 .ss-hero__actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
 .ss-hero__trust { display: flex; align-items: center; gap: 11px; margin-top: 26px; font-size: 0.82rem; color: rgba(255, 255, 255, 0.62); }
 .ss-stars { color: var(--blue); letter-spacing: 2px; font-size: 0.95rem; }
