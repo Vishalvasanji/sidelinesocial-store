@@ -8,7 +8,7 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preload" href="./fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="./fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="./styles.css?v=18" />
+  <link rel="stylesheet" href="./styles.css?v=19" />
 </head>
 <body>
 
@@ -57,7 +57,6 @@
 
   <!-- 3. Hero -------------------------------------------------------- -->
   <section class="ss-hero scheme-dark">
-    <svg class="ss-hero__watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 11l2 2 4-4"/></svg>
     <div class="container ss-hero__inner">
       <div class="ss-hero__content reveal">
         <h1 class="ss-hero__title">Team Pride.<br /><span class="ss-hero__title-accent">Better Design.</span></h1>
@@ -72,10 +71,11 @@
         </div>
       </div>
       <div class="ss-hero__media reveal">
-        <!-- Single hero image. Swap docs/img/hero.svg for the exported mockup hero
-             (a transparent PNG is recommended so it sits on the dark background). -->
-        <img class="ss-hero__img" src="./img/hero.svg" width="720" height="640"
-             alt="A custom Westview Wolves team store with hoodie, hat, and team gear" />
+        <!-- Faint Sideline "S" icon backing the products. -->
+        <img class="ss-hero__watermark" src="./img/Logo%20-%20White%20Icon.png" alt="" aria-hidden="true" />
+        <!-- Hero product image (800x500 transparent PNG). -->
+        <img class="ss-hero__img" src="./img/hero.png" width="800" height="500"
+             alt="Three custom Westview Wolves team sweatshirts — red Wulves, grey Pack shield, and red Game designs" />
       </div>
     </div>
   </section>
