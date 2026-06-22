@@ -160,11 +160,14 @@ button { font-family: inherit; }
    =========================================================== */
 .ss-header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--border); background: var(--ss-bg-dark); }
 .ss-header__inner { display: flex; align-items: center; gap: 22px; min-height: 70px; }
-.ss-logo { display: inline-flex; align-items: center; gap: 11px; }
-.ss-logo__emblem { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 9px; background: linear-gradient(150deg, var(--gold), var(--accent-deep)); color: var(--on-accent); }
-.ss-logo__emblem svg { width: 20px; height: 20px; }
-.ss-logo__word { font-family: var(--font-heading); font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; font-size: 1.18rem; color: #fff; line-height: 1; }
-.ss-logo__word-accent { color: var(--gold); }
+.ss-logo { display: inline-flex; align-items: center; }
+.ss-logo__icon { height: 34px; width: auto; flex: none; display: block; }
+.ss-logo__word { height: 24px; width: auto; display: block; margin-left: 10px; max-width: 220px; opacity: 1; transition: opacity 0.25s ease, max-width 0.3s ease, margin 0.3s ease; }
+/* Nav: collapse the wordmark once the page is scrolled (icon stays) */
+.ss-header.is-scrolled .ss-logo__word { opacity: 0; max-width: 0; margin-left: 0; }
+/* Phones: header shows the icon only (footer keeps its wordmark) */
+@media (max-width: 640px) { .ss-header .ss-logo__word { display: none; } }
+@media (prefers-reduced-motion: reduce) { .ss-logo__word { transition: none; } }
 .ss-nav { display: none; align-items: center; gap: 26px; margin-inline: auto; }
 .ss-nav a { font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.78rem; color: rgba(255, 255, 255, 0.82); transition: color 0.15s ease; }
 .ss-nav a:hover { color: var(--blue); }

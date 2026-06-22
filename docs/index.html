@@ -8,7 +8,7 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preload" href="./fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="./fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="./styles.css?v=14" />
+  <link rel="stylesheet" href="./styles.css?v=15" />
 </head>
 <body>
 
@@ -23,9 +23,9 @@
   <!-- 2. Header ------------------------------------------------------ -->
   <header class="ss-header scheme-dark">
     <div class="container ss-header__inner">
-      <a class="ss-logo" href="#">
-        <span class="ss-logo__emblem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-        <span class="ss-logo__word">Sideline<span class="ss-logo__word-accent"> Social</span></span>
+      <a class="ss-logo" href="#" aria-label="Sideline Social">
+        <img class="ss-logo__icon" src="./img/Logo%20-%20White%20Icon.png" alt="" />
+        <img class="ss-logo__word" src="./img/Logo%20-%20White%20Logo.png" alt="" />
       </a>
       <nav class="ss-nav" aria-label="Primary">
         <a href="#">Team Stores</a>
@@ -320,9 +320,9 @@
     <div class="container">
       <div class="ss-footer__top">
         <div class="ss-footer__brand">
-          <a class="ss-logo" href="#">
-            <span class="ss-logo__emblem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-            <span class="ss-logo__word">Sideline<span class="ss-logo__word-accent"> Social</span></span>
+          <a class="ss-logo" href="#" aria-label="Sideline Social">
+            <img class="ss-logo__icon" src="./img/Logo%20-%20White%20Icon.png" alt="" />
+            <img class="ss-logo__word" src="./img/Logo%20-%20White%20Logo.png" alt="" />
           </a>
           <p class="ss-footer__tagline">Custom team stores that bring people together. Built for families, fueled by passion, and designed for teams to be proud of.</p>
           <div class="ss-socials">
@@ -402,6 +402,18 @@
         var open = nav.classList.toggle('is-open');
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
+    })();
+
+    // Header: collapse the logo wordmark once the page is scrolled
+    (function () {
+      var header = document.querySelector('.ss-header');
+      if (!header) return;
+      var ticking = false;
+      function update() { header.classList.toggle('is-scrolled', window.scrollY > 8); ticking = false; }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }, { passive: true });
+      update();
     })();
   </script>
 
