@@ -1,0 +1,36 @@
+name: Auto-merge Claude PRs
+
+# Auto-merges pull requests from claude/* branches as soon as they open
+# (or are marked ready for review). Scoped to claude/* so no other PRs are
+# touched, and drafts are skipped. Uses a merge commit to match repo history.
+#
+# Requires: Settings -> Actions -> General -> Workflow permissions set to
+# "Read and write permissions" so GITHUB_TOKEN can merge.
+
+on:
+  pull_request_target:
+    types: [opened, reopened, ready_for_review, synchronize]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: automerge-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    # Only Claude's branches, and never drafts.
+    if: >-
+      github.event.pull_request.draft == false &&
+      startsWith(github.event.pull_request.head.ref, 'claude/')
+    steps:
+      - name: Merge the PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr merge "${{ github.event.pull_request.number }}" \
+            --repo "${{ github.repository }}" \
+            --merge
