@@ -241,46 +241,38 @@ button { font-family: inherit; }
 }
 
 /* ===========================================================
-   5. Comparison "More than a logo on a shirt"
+   5. Brand proof "More than a logo on a shirt"
    =========================================================== */
-.ss-compare__inner { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
-.ss-compare__intro h2 { font-family: var(--font-heading); text-transform: uppercase; font-weight: 800; font-stretch: 110%; font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 0.98; color: var(--heading); }
-.ss-compare__intro p { margin-top: 18px; color: var(--fg); max-width: 40ch; font-size: 1.02rem; }
-.ss-compare__panels { position: relative; display: grid; grid-template-columns: 1fr; gap: 18px; }
-.ss-compare__card { border-radius: var(--radius); padding: 24px; border: 1px solid var(--ss-border-light); }
-.ss-compare__card--basic { background: #eef0f3; color: #6b7280; }
-.ss-compare__card--ss { background: var(--ss-bg-panel); color: rgba(255, 255, 255, 0.82); border-color: var(--ss-border-dark); box-shadow: 0 22px 50px rgba(7, 17, 28, 0.22); }
-.ss-compare__label { display: flex; align-items: center; gap: 9px; font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.82rem; margin-bottom: 14px; }
-.ss-compare__card--basic .ss-compare__label { color: #59616b; }
-.ss-compare__card--ss .ss-compare__label { color: #fff; }
-.ss-compare__chip { font-size: 0.6rem; padding: 3px 8px; border-radius: 20px; letter-spacing: 0.06em; }
-.ss-compare__card--basic .ss-compare__chip { background: #dde0e5; color: #707783; }
-.ss-compare__card--ss .ss-compare__chip { background: var(--blue); color: #fff; }
-.ss-compare__mock { aspect-ratio: 16 / 7; border-radius: 10px; margin-bottom: 16px; }
-.ss-compare__list li { display: flex; align-items: center; gap: 10px; padding: 7px 0; font-size: 0.9rem; }
-.ss-compare__list svg { width: 17px; height: 17px; flex: none; }
-.ss-compare__card--basic .ss-compare__list svg { color: #aab0b8; }
-.ss-compare__card--ss .ss-compare__list svg { color: var(--blue); }
-.ss-vs { justify-self: center; width: 54px; height: 54px; border-radius: 50%; background: var(--blue); color: #fff; display: grid; place-items: center; font-family: var(--font-heading); font-weight: 800; font-size: 0.92rem; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.32); z-index: 2; }
-@media (min-width: 880px) {
-  .ss-compare__inner { grid-template-columns: 0.82fr 1.18fr; gap: 50px; }
-  .ss-compare__panels { grid-template-columns: 1fr 1fr; align-items: stretch; }
-  .ss-vs { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
-  .ss-compare__card { padding: 28px; }
-}
+.ss-proof { padding-top: clamp(56px, 9vw, 116px); padding-bottom: clamp(56px, 7vw, 92px); }
 
-/* ===========================================================
-   6. Benefits "Designed for teams. Loved by families."
-   =========================================================== */
-.ss-benefits__grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 38px; }
-.ss-benefit { background: #fff; border: 1px solid var(--ss-border-light); border-radius: var(--radius-sm); padding: 26px 22px; transition: transform 0.18s ease, box-shadow 0.18s ease; }
-.ss-benefit:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(16, 19, 24, 0.08); }
-.ss-benefit__icon { width: 50px; height: 50px; display: grid; place-items: center; border-radius: 12px; background: var(--accent-2-tint); color: var(--blue); margin-bottom: 16px; }
-.ss-benefit__icon svg { width: 25px; height: 25px; }
-.ss-benefit h3 { font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; font-size: 0.96rem; color: var(--ss-text-dark); }
-.ss-benefit p { margin-top: 8px; font-size: 0.9rem; color: var(--ss-text-muted); }
-@media (min-width: 560px) { .ss-benefits__grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 960px) { .ss-benefits__grid { grid-template-columns: repeat(5, 1fr); gap: 18px; } }
+/* Intro */
+.ss-proof__intro { max-width: 960px; margin-inline: auto; padding-inline: var(--page-margin); text-align: center; margin-bottom: clamp(32px, 5vw, 60px); }
+.ss-proof__title { font-family: var(--font-heading); text-transform: uppercase; font-weight: 800; font-stretch: 110%; letter-spacing: 0.005em; line-height: 0.98; color: var(--heading); font-size: clamp(2.5rem, 6vw, 5rem); }
+.ss-proof__accent { color: var(--team-accent-primary); }
+.ss-proof__sub { max-width: 660px; margin: 20px auto 0; color: var(--fg); font-size: clamp(1rem, 1.4vw, 1.18rem); line-height: 1.5; }
+.ss-proof__underline { display: block; width: 64px; height: 3px; border-radius: 2px; background: var(--blue); margin: 24px auto 0; }
+
+/* Full-bleed comparison image */
+.ss-proof__media { margin: 0; height: 400px; overflow: hidden; background: var(--panel); }
+.ss-proof__img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.ss-proof__placeholder { display: grid; place-items: center; background: linear-gradient(135deg, #eef1f5 0%, #dfe4ea 100%); }
+.ss-proof__placeholder span { font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 700; color: #aab2bd; }
+@media (min-width: 600px) { .ss-proof__media { height: 500px; } }
+@media (min-width: 1000px) { .ss-proof__media { height: 600px; } }
+
+/* Benefits row (light, no cards) */
+.ss-proof__benefits { list-style: none; max-width: 1280px; margin-inline: auto; padding-inline: var(--page-margin); padding-top: clamp(32px, 4.5vw, 60px); display: grid; grid-template-columns: 1fr 1fr; gap: 34px 24px; }
+.ss-pillar__icon { display: inline-grid; place-items: center; color: var(--blue); margin-bottom: 12px; }
+.ss-pillar__icon svg { width: 30px; height: 30px; }
+.ss-pillar__title { font-family: var(--font-heading); font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; font-size: 1rem; line-height: 1.15; color: var(--ss-text-dark); }
+.ss-pillar__body { margin-top: 8px; font-size: 0.92rem; line-height: 1.5; color: var(--ss-text-muted); }
+@media (min-width: 760px) {
+  .ss-proof__benefits { grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .ss-pillar { padding-inline: clamp(16px, 2.4vw, 32px); }
+  .ss-pillar + .ss-pillar { border-left: 1px solid var(--ss-border-light); }
+  .ss-pillar:first-child { padding-left: 0; }
+  .ss-pillar:last-child { padding-right: 0; }
+}
 
 /* ===========================================================
    7. How It Works
