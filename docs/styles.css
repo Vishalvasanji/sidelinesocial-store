@@ -296,8 +296,6 @@ button { font-family: inherit; }
 .ss-hiw__step p { margin-top: 7px; font-size: 0.88rem; color: var(--ss-text-muted); }
 @media (min-width: 960px) {
   .ss-hiw__steps { grid-template-columns: repeat(5, 1fr); gap: 14px; }
-  .ss-hiw__step:not(:last-child)::after { content: ""; position: absolute; top: 50%; right: -10px; width: 20px; height: 2px; background: var(--ss-border-light); }
-  .ss-hiw__step:not(:last-child)::before { content: ""; position: absolute; top: calc(50% - 4px); right: -10px; width: 8px; height: 8px; border-top: 2px solid var(--ss-border-light); border-right: 2px solid var(--ss-border-light); transform: rotate(45deg); z-index: 1; }
 }
 
 /* ===========================================================
