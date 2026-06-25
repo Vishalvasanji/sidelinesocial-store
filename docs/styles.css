@@ -272,6 +272,19 @@ button { font-family: inherit; }
 }
 
 /* ===========================================================
+   6. Mid-page CTA strip
+   =========================================================== */
+.ss-ctastrip { position: relative; overflow: hidden; background: radial-gradient(90% 160% at 85% 50%, var(--ss-glow-cta) 0%, var(--ss-bg-dark) 60%); padding-block: clamp(32px, 5vw, 52px); }
+.ss-ctastrip__inner { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+.ss-ctastrip__title { font-family: var(--font-heading); font-weight: 800; font-stretch: 110%; text-transform: uppercase; letter-spacing: 0.005em; line-height: 1.04; font-size: clamp(1.5rem, 3vw, 2.1rem); color: #fff; }
+.ss-ctastrip__sub { margin-top: 10px; color: rgba(255, 255, 255, 0.72); font-size: clamp(0.98rem, 1.3vw, 1.08rem); line-height: 1.5; max-width: 60ch; }
+.ss-ctastrip__btn { flex: none; }
+@media (min-width: 760px) {
+  .ss-ctastrip__inner { flex-direction: row; align-items: center; justify-content: space-between; gap: 40px; }
+  .ss-ctastrip__text { max-width: 62ch; }
+}
+
+/* ===========================================================
    7. How It Works
    =========================================================== */
 .ss-hiw__steps { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
