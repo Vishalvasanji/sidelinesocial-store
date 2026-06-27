@@ -8,7 +8,7 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preload" href="./fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="./fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="./styles.css?v=34" />
+  <link rel="stylesheet" href="./styles.css?v=35" />
 </head>
 <body>
 
@@ -191,6 +191,127 @@
           <p>Premium gear delivered to their door.</p>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <!-- 7b. Why Sideline Social — 2-column sticky accordion ------------ -->
+  <section class="section scheme-dark ss-why" aria-labelledby="ss-why-title">
+    <div class="container ss-why__inner">
+
+      <!-- LEFT: headline + accordion list -->
+      <div class="ss-why__list reveal">
+        <p class="ss-eyebrow">Why Sideline Social</p>
+        <h2 class="ss-sec-title ss-why__title" id="ss-why-title">Built like an apparel brand. Run like a team store.</h2>
+
+        <ul class="ss-why__items">
+          <li class="ss-why__item is-active" data-why="1">
+            <button class="ss-why__row" type="button" aria-expanded="true" aria-controls="why-detail-1" id="why-row-1">
+              <span class="ss-why__num">01</span>
+              <span class="ss-why__rowtext">
+                <span class="ss-why__rowtitle">Gear People Want</span>
+                <span class="ss-why__rowblurb">Premium apparel, modern fits, and more options for everyone who reps your team.</span>
+              </span>
+              <span class="ss-why__chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="ss-why__detail" id="why-detail-1" role="region" aria-labelledby="why-row-1">
+              <div class="ss-why__dinner">
+                <span class="ss-why__dicon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3.5 21 7l-2.5 3.5L16 9v11.5H8V9l-2.5 1.5L3 7l5-3.5a3.5 3.5 0 0 0 8 0Z"/></svg></span>
+                <h3 class="ss-why__dtitle">Gear People Want</h3>
+                <p class="ss-why__ddesc">High-quality apparel with modern fits, premium materials, and a complete collection for players, parents, and fans.</p>
+                <ul class="ss-why__proof">
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Premium Quality</li>
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Fits for Everyone</li>
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Complete Collection</li>
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Modern Team Designs</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="ss-why__item" data-why="2">
+            <button class="ss-why__row" type="button" aria-expanded="false" aria-controls="why-detail-2" id="why-row-2">
+              <span class="ss-why__num">02</span>
+              <span class="ss-why__rowtext">
+                <span class="ss-why__rowtitle">Easy for Families</span>
+                <span class="ss-why__rowblurb">A seamless online shopping experience from click to doorstep.</span>
+              </span>
+              <span class="ss-why__chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="ss-why__detail" id="why-detail-2" role="region" aria-labelledby="why-row-2">
+              <div class="ss-why__dinner">
+                <span class="ss-why__dicon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                <h3 class="ss-why__dtitle">Easy for Families</h3>
+                <p class="ss-why__ddesc">Parents shop online, choose sizes, pay securely, and get orders shipped direct — without forms, cash, or confusion.</p>
+                <ul class="ss-why__proof">
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Online Ordering</li>
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Secure Checkout</li>
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Direct Shipping</li>
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>No Paper Forms</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="ss-why__item" data-why="3">
+            <button class="ss-why__row" type="button" aria-expanded="false" aria-controls="why-detail-3" id="why-row-3">
+              <span class="ss-why__num">03</span>
+              <span class="ss-why__rowtext">
+                <span class="ss-why__rowtitle">Less Work for Teams</span>
+                <span class="ss-why__rowblurb">We handle the heavy lifting so you can focus on what matters most.</span>
+              </span>
+              <span class="ss-why__chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="ss-why__detail" id="why-detail-3" role="region" aria-labelledby="why-row-3">
+              <div class="ss-why__dinner">
+                <span class="ss-why__dicon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11.5 11 13.5 15 9.5"/></svg></span>
+                <h3 class="ss-why__dtitle">Less Work for Teams</h3>
+                <p class="ss-why__ddesc">No inventory, no collecting money, no sorting boxes, and no managing order issues. We handle the store operations.</p>
+                <ul class="ss-why__proof">
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>No Inventory</li>
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>No Cash Collection</li>
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>No Sorting Orders</li>
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Ongoing Support</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="ss-why__item" data-why="4">
+            <button class="ss-why__row" type="button" aria-expanded="false" aria-controls="why-detail-4" id="why-row-4">
+              <span class="ss-why__num">04</span>
+              <span class="ss-why__rowtext">
+                <span class="ss-why__rowtitle">Pride Beyond Game Day</span>
+                <span class="ss-why__rowblurb">A stronger off-field brand that builds unity and lasts beyond the season.</span>
+              </span>
+              <span class="ss-why__chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="ss-why__detail" id="why-detail-4" role="region" aria-labelledby="why-row-4">
+              <div class="ss-why__dinner">
+                <span class="ss-why__dicon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></span>
+                <h3 class="ss-why__dtitle">Pride Beyond Game Day</h3>
+                <p class="ss-why__ddesc">Your store becomes part of your team identity with consistent colors, better designs, and gear people wear beyond the sideline.</p>
+                <ul class="ss-why__proof">
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Team Colors</li>
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Custom Designs</li>
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Off-Field Style</li>
+                  <li><span class="ss-why__pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Built for Community</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- RIGHT: sticky editorial stage (desktop). JS mirrors each detail here and crossfades. -->
+      <div class="ss-why__stage reveal" aria-hidden="true">
+        <div class="ss-why__panel">
+          <div class="ss-why__state is-active" data-state="1"></div>
+          <div class="ss-why__state" data-state="2"></div>
+          <div class="ss-why__state" data-state="3"></div>
+          <div class="ss-why__state" data-state="4"></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -381,6 +502,70 @@
         if (!ticking) { ticking = true; requestAnimationFrame(update); }
       }, { passive: true });
       update();
+    })();
+
+    // Why Sideline Social — sticky accordion + crossfade stage
+    (function () {
+      var root = document.querySelector('.ss-why');
+      if (!root) return;
+      var items = Array.prototype.slice.call(root.querySelectorAll('.ss-why__item'));
+      var states = Array.prototype.slice.call(root.querySelectorAll('.ss-why__state'));
+      var panel = root.querySelector('.ss-why__panel');
+      if (!items.length) return;
+
+      // Mirror each item's detail into its desktop stage state (one-time).
+      items.forEach(function (item) {
+        var id = item.getAttribute('data-why');
+        var inner = item.querySelector('.ss-why__dinner');
+        var state = root.querySelector('.ss-why__state[data-state="' + id + '"]');
+        if (inner && state) state.innerHTML = inner.innerHTML;
+      });
+
+      function activate(id) {
+        items.forEach(function (item) {
+          var on = item.getAttribute('data-why') === id;
+          item.classList.toggle('is-active', on);
+          var btn = item.querySelector('.ss-why__row');
+          if (btn) btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+        });
+        states.forEach(function (s) {
+          s.classList.toggle('is-active', s.getAttribute('data-state') === id);
+        });
+      }
+
+      items.forEach(function (item) {
+        var btn = item.querySelector('.ss-why__row');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var id = item.getAttribute('data-why');
+          // Desktop: always one selected (crossfade). Mobile: tapping the open row collapses it.
+          if (!window.matchMedia('(min-width: 960px)').matches && item.classList.contains('is-active')) {
+            item.classList.remove('is-active');
+            btn.setAttribute('aria-expanded', 'false');
+            return;
+          }
+          activate(id);
+        });
+      });
+
+      activate('1'); // item 1 active on load
+
+      // Size the panel to the tallest state so the crossfade never reflows.
+      function sizePanel() {
+        if (!panel) return;
+        var tallest = 0;
+        states.forEach(function (s) {
+          var prev = s.style.cssText;
+          s.style.cssText = prev + ';position:relative;opacity:0;transform:none;';
+          if (s.offsetHeight > tallest) tallest = s.offsetHeight;
+          s.style.cssText = prev;
+        });
+        if (tallest) panel.style.minHeight = tallest + 'px';
+      }
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(sizePanel); }
+      else { window.addEventListener('load', sizePanel); }
+      var rt;
+      window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(sizePanel, 150); }, { passive: true });
     })();
   </script>
 
