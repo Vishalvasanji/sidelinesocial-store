@@ -59,6 +59,8 @@
   --container-max: 1300px;
   --radius: 16px;
   --radius-sm: 11px;
+
+  --ss-header-h: 61px;
 }
 @media (min-width: 750px) { :root { --page-margin: 40px; } }
 
@@ -381,3 +383,62 @@ button { font-family: inherit; }
 .js .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; transition-delay: var(--reveal-delay, 0ms); }
 .js .reveal.is-visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* ===========================================================
+   7b. Why Sideline Social — 2-column sticky accordion
+   =========================================================== */
+.ss-why { border-bottom: 1px solid var(--ss-border-dark); }   /* hairline seam vs the dark Featured Stores band below */
+.ss-why__title { margin-top: 12px; }
+.ss-why__items { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+
+.ss-why__item { background: var(--ss-bg-panel); border: 1px solid var(--border); border-radius: var(--radius); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+.ss-why__item.is-active { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue), 0 0 24px rgba(59, 130, 246, 0.15); }
+
+.ss-why__row { width: 100%; display: grid; grid-template-columns: auto 1fr auto; align-items: start; gap: 16px; padding: 22px; background: none; border: 0; text-align: left; cursor: pointer; color: var(--heading); font: inherit; }
+.ss-why__num { font-family: var(--font-heading); font-weight: 800; font-size: 1.15rem; line-height: 1.1; color: var(--blue); }
+.ss-why__rowtitle { display: block; font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; font-size: 1rem; color: var(--heading); }
+.ss-why__rowblurb { display: block; margin-top: 6px; font-size: 0.9rem; line-height: 1.45; color: var(--muted); }
+.ss-why__chev { display: inline-flex; color: var(--muted); transition: transform 0.3s ease, color 0.2s ease; }
+.ss-why__chev svg { width: 20px; height: 20px; }
+.ss-why__item.is-active .ss-why__chev { color: var(--blue); transform: rotate(180deg); }
+
+/* Detail — inline collapsible on mobile (JS-gated; no-JS shows it open). */
+.ss-why__detail .ss-why__dicon,
+.ss-why__detail .ss-why__dtitle { display: none; }   /* the row already shows the title on mobile */
+.js .ss-why__detail { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s ease; }
+.js .ss-why__item.is-active .ss-why__detail { grid-template-rows: 1fr; }
+.ss-why__dinner { min-height: 0; overflow: hidden; padding: 0 22px; }
+.ss-why__item.is-active .ss-why__dinner { padding-bottom: 24px; }
+
+.ss-why__dicon { display: inline-grid; place-items: center; width: 46px; height: 46px; border-radius: 12px; color: var(--blue); background: var(--accent-2-tint); margin-bottom: 18px; }
+.ss-why__dicon svg { width: 24px; height: 24px; }
+.ss-why__dtitle { font-family: var(--font-heading); font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; font-size: clamp(1.35rem, 2.4vw, 1.95rem); line-height: 1.04; color: var(--heading); }
+.ss-why__ddesc { margin-top: 14px; font-size: 1.02rem; line-height: 1.55; color: var(--fg); max-width: 46ch; }
+.ss-why__proof { margin: 24px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+.ss-why__proof li { display: flex; align-items: center; gap: 11px; font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; font-size: 0.8rem; line-height: 1.2; color: var(--heading); }
+.ss-why__pi { display: inline-grid; place-items: center; width: 26px; height: 26px; flex: none; border-radius: 50%; color: var(--blue); background: var(--accent-2-tint); }
+.ss-why__pi svg { width: 15px; height: 15px; }
+
+/* Right stage hidden until desktop (and until JS can mirror content into it). */
+.ss-why__stage { display: none; }
+
+@media (min-width: 960px) {
+  .ss-why__inner { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(40px, 5vw, 72px); align-items: start; }
+  .ss-why__items { margin-top: 36px; gap: 12px; }
+  .ss-why__row { align-items: center; }
+  .ss-why__chev { display: none; }
+
+  /* With JS, details are mirrored into the sticky stage — hide the inline copies. */
+  .js .ss-why__detail { display: none; }
+  .js .ss-why__stage { display: block; position: sticky; top: calc(var(--ss-header-h) + 24px); align-self: start; }
+
+  .ss-why__panel { position: relative; min-height: 28rem; border: 1px solid var(--border); border-radius: var(--radius); background: linear-gradient(160deg, var(--ss-glow-hero), var(--ss-bg-deep)); box-shadow: 0 0 30px rgba(59, 130, 246, 0.08); overflow: hidden; }
+  .ss-why__state { position: absolute; inset: 0; padding: clamp(30px, 3vw, 48px); opacity: 0; transform: translateY(10px); transition: opacity 0.45s ease, transform 0.45s ease; pointer-events: none; }
+  .ss-why__state.is-active { opacity: 1; transform: none; pointer-events: auto; }
+  .ss-why__state .ss-why__ddesc { max-width: 42ch; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ss-why__item, .ss-why__chev, .ss-why__detail, .ss-why__state { transition: none; }
+  .ss-why__state { transform: none; }
+}
