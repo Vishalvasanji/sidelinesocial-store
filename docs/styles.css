@@ -388,7 +388,8 @@ button { font-family: inherit; }
    7b. Why Sideline Social — 2-column sticky accordion
    =========================================================== */
 .ss-why { border-bottom: 1px solid var(--ss-border-dark); }   /* hairline seam vs the dark Featured Stores band below */
-.ss-why__title { margin-top: 12px; }
+.ss-why__head { margin-bottom: clamp(28px, 4vw, 44px); }
+.ss-why__title { margin-top: 12px; font-size: clamp(2.1rem, 5vw, 3.8rem); line-height: 1.02; }
 .ss-why__items { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 14px; }
 
 .ss-why__item { background: var(--ss-bg-panel); border: 1px solid var(--border); border-radius: var(--radius); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
@@ -423,17 +424,17 @@ button { font-family: inherit; }
 .ss-why__stage { display: none; }
 
 @media (min-width: 960px) {
-  .ss-why__inner { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(40px, 5vw, 72px); align-items: start; }
-  .ss-why__items { margin-top: 36px; gap: 12px; }
+  .ss-why__inner { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(40px, 5vw, 72px); align-items: stretch; }
+  .ss-why__items { margin-top: 0; gap: 12px; }
   .ss-why__row { align-items: center; }
   .ss-why__chev { display: none; }
 
   /* With JS, details are mirrored into the sticky stage — hide the inline copies. */
   .js .ss-why__detail { display: none; }
-  .js .ss-why__stage { display: block; position: sticky; top: calc(var(--ss-header-h) + 24px); align-self: start; }
+  .js .ss-why__stage { display: flex; flex-direction: column; }
 
-  .ss-why__panel { position: relative; min-height: 28rem; border: 1px solid var(--border); border-radius: var(--radius); background: linear-gradient(160deg, var(--ss-glow-hero), var(--ss-bg-deep)); box-shadow: 0 0 30px rgba(59, 130, 246, 0.08); overflow: hidden; }
-  .ss-why__state { position: absolute; inset: 0; padding: clamp(30px, 3vw, 48px); opacity: 0; transform: translateY(10px); transition: opacity 0.45s ease, transform 0.45s ease; pointer-events: none; }
+  .ss-why__panel { position: relative; flex: 1 1 auto; min-height: 24rem; border: 1px solid var(--border); border-radius: var(--radius); background: linear-gradient(160deg, var(--ss-glow-hero), var(--ss-bg-deep)); box-shadow: 0 0 30px rgba(59, 130, 246, 0.08); overflow: hidden; }
+  .ss-why__state { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: clamp(34px, 3.4vw, 52px); opacity: 0; transform: translateY(10px); transition: opacity 0.45s ease, transform 0.45s ease; pointer-events: none; }
   .ss-why__state.is-active { opacity: 1; transform: none; pointer-events: auto; }
   .ss-why__state .ss-why__ddesc { max-width: 42ch; }
 }

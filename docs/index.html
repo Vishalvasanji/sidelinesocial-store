@@ -8,7 +8,7 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preload" href="./fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="./fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="./styles.css?v=35" />
+  <link rel="stylesheet" href="./styles.css?v=36" />
 </head>
 <body>
 
@@ -196,20 +196,23 @@
 
   <!-- 7b. Why Sideline Social — 2-column sticky accordion ------------ -->
   <section class="section scheme-dark ss-why" aria-labelledby="ss-why-title">
-    <div class="container ss-why__inner">
+    <div class="container">
 
-      <!-- LEFT: headline + accordion list -->
-      <div class="ss-why__list reveal">
+      <!-- Headline across the top -->
+      <div class="ss-why__head reveal">
         <p class="ss-eyebrow">Why Sideline Social</p>
-        <h2 class="ss-sec-title ss-why__title" id="ss-why-title">Built like an apparel brand. Run like a team store.</h2>
+        <h2 class="ss-sec-title ss-why__title" id="ss-why-title">Built Like an Apparel Brand.</h2>
+      </div>
 
-        <ul class="ss-why__items">
+      <div class="ss-why__inner">
+        <!-- LEFT: accordion list -->
+        <ul class="ss-why__items reveal">
           <li class="ss-why__item is-active" data-why="1">
             <button class="ss-why__row" type="button" aria-expanded="true" aria-controls="why-detail-1" id="why-row-1">
               <span class="ss-why__num">01</span>
               <span class="ss-why__rowtext">
                 <span class="ss-why__rowtitle">Gear People Want</span>
-                <span class="ss-why__rowblurb">Premium apparel, modern fits, and more options for everyone who reps your team.</span>
+                <span class="ss-why__rowblurb">Premium apparel and modern fits for every player, parent, and fan on your team.</span>
               </span>
               <span class="ss-why__chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </button>
@@ -233,7 +236,7 @@
               <span class="ss-why__num">02</span>
               <span class="ss-why__rowtext">
                 <span class="ss-why__rowtitle">Easy for Families</span>
-                <span class="ss-why__rowblurb">A seamless online shopping experience from click to doorstep.</span>
+                <span class="ss-why__rowblurb">A seamless online shopping experience, from the first click to the doorstep.</span>
               </span>
               <span class="ss-why__chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </button>
@@ -257,7 +260,7 @@
               <span class="ss-why__num">03</span>
               <span class="ss-why__rowtext">
                 <span class="ss-why__rowtitle">Less Work for Teams</span>
-                <span class="ss-why__rowblurb">We handle the heavy lifting so you can focus on what matters most.</span>
+                <span class="ss-why__rowblurb">We handle the heavy lifting so your team can focus on what matters most.</span>
               </span>
               <span class="ss-why__chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </button>
@@ -281,7 +284,7 @@
               <span class="ss-why__num">04</span>
               <span class="ss-why__rowtext">
                 <span class="ss-why__rowtitle">Pride Beyond Game Day</span>
-                <span class="ss-why__rowblurb">A stronger off-field brand that builds unity and lasts beyond the season.</span>
+                <span class="ss-why__rowblurb">A stronger off-field brand that builds unity and lasts well beyond the season.</span>
               </span>
               <span class="ss-why__chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </button>
@@ -300,16 +303,17 @@
             </div>
           </li>
         </ul>
-      </div>
 
-      <!-- RIGHT: sticky editorial stage (desktop). JS mirrors each detail here and crossfades. -->
-      <div class="ss-why__stage reveal" aria-hidden="true">
+        <!-- RIGHT: editorial stage — matches the combined height of the accordion boxes -->
+        <div class="ss-why__stage reveal" aria-hidden="true">
         <div class="ss-why__panel">
           <div class="ss-why__state is-active" data-state="1"></div>
           <div class="ss-why__state" data-state="2"></div>
           <div class="ss-why__state" data-state="3"></div>
           <div class="ss-why__state" data-state="4"></div>
         </div>
+      </div>
+
       </div>
 
     </div>
@@ -549,23 +553,6 @@
       });
 
       activate('1'); // item 1 active on load
-
-      // Size the panel to the tallest state so the crossfade never reflows.
-      function sizePanel() {
-        if (!panel) return;
-        var tallest = 0;
-        states.forEach(function (s) {
-          var prev = s.style.cssText;
-          s.style.cssText = prev + ';position:relative;opacity:0;transform:none;';
-          if (s.offsetHeight > tallest) tallest = s.offsetHeight;
-          s.style.cssText = prev;
-        });
-        if (tallest) panel.style.minHeight = tallest + 'px';
-      }
-      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(sizePanel); }
-      else { window.addEventListener('load', sizePanel); }
-      var rt;
-      window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(sizePanel, 150); }, { passive: true });
     })();
   </script>
 
