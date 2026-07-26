@@ -307,22 +307,21 @@ button { font-family: inherit; }
    8. Featured Team Stores
    =========================================================== */
 .ss-stores__nav { display: flex; gap: 9px; }
-.ss-arrow { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--ss-border-dark); background: transparent; color: #fff; cursor: pointer; display: grid; place-items: center; transition: background-color 0.15s ease, border-color 0.15s ease; }
+.ss-arrow { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: #fff; color: var(--ss-text-dark); cursor: pointer; display: grid; place-items: center; box-shadow: var(--shadow-card); transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease; }
 .ss-arrow:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
 .ss-arrow svg { width: 18px; height: 18px; }
 .ss-stores__layout { display: grid; grid-template-columns: 1fr; gap: 18px; }
-.ss-store-featured { background: var(--ss-bg-panel); border: 1px solid var(--ss-border-dark); border-radius: var(--radius); padding: 26px; position: relative; overflow: hidden; }
-.ss-store-featured::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--blue); }
+.ss-store-featured { background: #fff; border-top: 4px solid var(--blue); border-radius: var(--radius); box-shadow: var(--shadow-card); padding: 26px; position: relative; overflow: hidden; }
 .ss-store-featured__top { display: flex; align-items: center; gap: 14px; }
 .ss-store-featured .monogram { width: 58px; height: 58px; font-size: 1.1rem; flex: none; }
-.ss-store-featured__name { font-family: var(--font-heading); font-weight: 800; text-transform: uppercase; color: #fff; font-size: 1.15rem; line-height: 1.1; }
-.ss-store-featured__sport { font-size: 0.8rem; color: rgba(255, 255, 255, 0.55); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 3px; }
-.ss-store-featured__rating { display: flex; align-items: center; gap: 7px; margin: 16px 0 18px; font-size: 0.84rem; color: rgba(255, 255, 255, 0.7); }
+.ss-store-featured__name { font-family: var(--font-heading); font-weight: 800; text-transform: uppercase; color: var(--ss-text-dark); font-size: 1.15rem; line-height: 1.1; }
+.ss-store-featured__sport { font-size: 0.8rem; color: var(--ss-text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+.ss-store-featured__rating { display: flex; align-items: center; gap: 7px; margin: 16px 0 18px; font-size: 0.84rem; color: var(--ss-text-muted); }
 .ss-store-featured__preview { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 20px; }
 .ss-store-featured__preview .ph { aspect-ratio: 1; border-radius: 8px; }
 .ss-store-track { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(210px, 1fr); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
 .ss-store-track::-webkit-scrollbar { display: none; }
-.ss-store-card { scroll-snap-align: start; background: #fff; border-radius: var(--radius); padding: 22px; border-top: 4px solid var(--card-accent, var(--blue)); }
+.ss-store-card { scroll-snap-align: start; background: #fff; border-radius: var(--radius); padding: 22px; border-top: 4px solid var(--card-accent, var(--blue)); box-shadow: var(--shadow-card); overflow: hidden; }
 .ss-store-card .monogram { width: 50px; height: 50px; font-size: 0.95rem; margin-bottom: 14px; }
 .ss-store-card__name { font-family: var(--font-heading); font-weight: 800; text-transform: uppercase; color: var(--ss-text-dark); font-size: 1rem; line-height: 1.1; }
 .ss-store-card__sport { font-size: 0.76rem; color: var(--ss-text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
@@ -390,7 +389,6 @@ button { font-family: inherit; }
 /* ===========================================================
    7b. Why Sideline Social — 2-column sticky accordion
    =========================================================== */
-.ss-why { border-bottom: 1px solid var(--ss-border-dark); }   /* hairline seam vs the dark Featured Stores band below */
 .ss-why__head { margin-bottom: clamp(28px, 4vw, 44px); }
 .ss-why__title { margin-top: 12px; font-size: clamp(2.1rem, 5vw, 3.8rem); line-height: 1; }
 .ss-why__items { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 14px; }
