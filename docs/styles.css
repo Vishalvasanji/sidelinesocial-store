@@ -60,6 +60,9 @@
   --radius: 16px;
   --radius-sm: 11px;
 
+  --shadow-card: 0 1px 2px rgba(16, 19, 24, 0.04), 0 8px 24px -8px rgba(16, 19, 24, 0.12);
+  --shadow-btn: 0 8px 20px -6px rgba(251, 106, 69, 0.45);
+
   --ss-header-h: 61px;
 }
 @media (min-width: 750px) { :root { --page-margin: 40px; } }
@@ -131,11 +134,11 @@ button { font-family: inherit; }
   font-family: var(--font-heading); font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.045em; font-size: 0.8rem; line-height: 1;
   padding: 15px 26px; border-radius: 9px; border: 1.5px solid transparent;
-  cursor: pointer; transition: transform 0.16s ease, background-color 0.16s ease, color 0.16s ease, border-color 0.16s ease; white-space: nowrap;
+  cursor: pointer; transition: transform 0.16s ease, background-color 0.16s ease, color 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease; white-space: nowrap;
 }
 .btn svg { width: 17px; height: 17px; }
 .btn--primary { background: var(--gold); color: var(--on-accent); border-color: var(--gold); }
-.btn--primary:hover { background: var(--gold-soft); border-color: var(--gold-soft); transform: translateY(-2px); }
+.btn--primary:hover { background: var(--gold-soft); border-color: var(--gold-soft); transform: translateY(-2px); box-shadow: var(--shadow-btn); }
 .btn--secondary { background: transparent; color: var(--heading); border-color: color-mix(in srgb, var(--heading) 45%, transparent); }
 .btn--secondary:hover { transform: translateY(-2px); border-color: var(--heading); }
 .scheme-dark .btn--secondary:hover, .scheme-deep .btn--secondary:hover { background: rgba(255, 255, 255, 0.07); }
@@ -249,7 +252,7 @@ button { font-family: inherit; }
 
 /* Intro — left-justified; shares the site container max-width + left edge (one spine) */
 .ss-proof__intro { max-width: var(--container-max); margin-inline: auto; padding-inline: var(--page-margin); text-align: left; margin-bottom: clamp(40px, 4.5vw, 56px); }
-.ss-proof__title { font-family: var(--font-heading); text-transform: uppercase; font-weight: 800; font-stretch: 110%; letter-spacing: 0.005em; line-height: 0.98; color: var(--heading); font-size: clamp(2.4rem, 5.2vw, 4.4rem); }
+.ss-proof__title { font-family: var(--font-heading); text-transform: uppercase; font-weight: 800; font-stretch: 110%; letter-spacing: 0.005em; line-height: 1; color: var(--heading); font-size: clamp(2.3rem, 5vw, 3.8rem); }
 .ss-proof__accent { color: var(--team-accent-primary); }
 .ss-proof__sub { max-width: 760px; margin: 16px 0 0; color: var(--fg); font-size: clamp(1rem, 1.4vw, 1.18rem); line-height: 1.5; }
 .ss-proof__underline { display: block; width: 64px; height: 3px; border-radius: 2px; background: var(--blue); margin: 20px 0 0; }
@@ -290,7 +293,7 @@ button { font-family: inherit; }
    7. How It Works
    =========================================================== */
 .ss-hiw__steps { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
-.ss-hiw__step { position: relative; background: #fff; border: 1px solid var(--ss-border-light); border-radius: var(--radius-sm); padding: 26px 22px; }
+.ss-hiw__step { position: relative; background: #fff; border: 1px solid var(--ss-border-light); border-radius: var(--radius); padding: 26px 22px; box-shadow: var(--shadow-card); }
 .ss-hiw__num { font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--blue); line-height: 1; }
 .ss-hiw__icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; border: 1.5px solid var(--ss-border-light); color: var(--ss-text-dark); margin: 14px 0 14px; }
 .ss-hiw__icon svg { width: 22px; height: 22px; }
@@ -334,7 +337,7 @@ button { font-family: inherit; }
    =========================================================== */
 .ss-cta { position: relative; overflow: hidden; background: radial-gradient(110% 120% at 15% 10%, var(--ss-glow-cta) 0%, var(--ss-bg-dark) 60%); }
 .ss-cta__inner { display: grid; grid-template-columns: 1fr; gap: 36px; align-items: center; }
-.ss-cta__content h2 { font-family: var(--font-heading); font-weight: 800; font-stretch: 112%; text-transform: uppercase; font-size: clamp(2.3rem, 5vw, 3.8rem); line-height: 0.96; color: #fff; }
+.ss-cta__content h2 { font-family: var(--font-heading); font-weight: 800; font-stretch: 110%; letter-spacing: 0.005em; text-transform: uppercase; font-size: clamp(2.3rem, 5vw, 3.8rem); line-height: 1; color: #fff; }
 .ss-cta__accent { color: var(--gold); }
 .ss-cta__content p { margin: 20px 0 28px; color: rgba(255, 255, 255, 0.72); max-width: 42ch; font-size: 1.05rem; }
 .ss-cta__media { min-height: 240px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--ss-border-dark); }
@@ -389,7 +392,7 @@ button { font-family: inherit; }
    =========================================================== */
 .ss-why { border-bottom: 1px solid var(--ss-border-dark); }   /* hairline seam vs the dark Featured Stores band below */
 .ss-why__head { margin-bottom: clamp(28px, 4vw, 44px); }
-.ss-why__title { margin-top: 12px; font-size: clamp(2.1rem, 5vw, 3.8rem); line-height: 1.02; }
+.ss-why__title { margin-top: 12px; font-size: clamp(2.1rem, 5vw, 3.8rem); line-height: 1; }
 .ss-why__items { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 14px; }
 
 .ss-why__item { background: var(--ss-bg-panel); border: 1px solid var(--border); border-radius: var(--radius); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
